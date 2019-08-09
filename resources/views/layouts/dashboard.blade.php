@@ -26,7 +26,8 @@
   <!-- build:css ../assets/styles/app.min.css -->
   <link rel="stylesheet" href="{{ asset('assets/styles/app.css') }}" type="text/css" />
   <!-- endbuild -->
-  <link rel="stylesheet" href="{{ asset('assets/styles/font.css') }}" type="text/css" />
+	<link rel="stylesheet" href="{{ asset('assets/styles/font.css') }}" type="text/css" />
+	@yield('css')
 </head>
 <body>
   <div class="app" id="app">
@@ -65,7 +66,7 @@
                   <small class="text-muted">Main</small>
                 </li>
                 <li>
-                  <a href="dashboard.html" >
+                  <a href="/home" >
                     <span class="nav-icon">
                       <i class="material-icons">airplay
                       </i>
@@ -82,12 +83,12 @@
                       <i class="material-icons">&#xe5c3;
                       </i>
                     </span>
-                    <span class="nav-text">Apps</span>
+                    <span class="nav-text">Master</span>
                   </a>
                   <ul class="nav-sub">
                     <li>
-                      <a href="inbox.html" >
-                        <span class="nav-text">Inbox</span>
+                      <a href="/user" >
+                        <span class="nav-text">User</span>
                       </a>
                     </li>
                     <li>
@@ -131,24 +132,7 @@
             </a>
             <!-- / -->
         
-            <!-- Page title - Bind to $state's title -->
-            <div class="mb-0 h5 no-wrap" ng-bind="$state.current.data.title" id="pageTitle">Dashboard</div>
-        
-            <!-- navbar collapse -->
-            <div class="collapse navbar-collapse" id="collapse">
-              <!-- link and dropdown -->
-              <ul class="nav navbar-nav mr-auto">
-                <li class="nav-item dropdown">
-                  <a class="nav-link" href data-toggle="dropdown">
-                    <i class="fa fa-fw fa-plus text-muted"></i>
-                    <span>New</span>
-                  </a>
-                </li>
-              </ul>
-        
-      
-              <!-- / -->
-            </div>
+@yield('title')
             <!-- / navbar collapse -->
         
             <!-- navbar right -->
@@ -156,15 +140,11 @@
               
               <li class="nav-item dropdown">
                 <a class="nav-link p-1 clear" href="#" data-toggle="dropdown">
-                  <span class="avatar w-32">
+                  <span class="avatar w-35">
                     <img src="../assets/images/a0.jpg" alt="...">
                   </span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-overlay pull-right">
-  <a class="dropdown-item" ui-sref="app.inbox.list">
-    <span>Inbox</span>
-    <span class="label warn m-l-xs">3</span>
-  </a>
   <a class="dropdown-item" ui-sref="app.page.profile">
     <span>Profile</span>
   </a>
@@ -173,9 +153,6 @@
     <span class="label primary m-l-xs">3/9</span>
   </a>
   <div class="dropdown-divider"></div>
-  <a class="dropdown-item" ui-sref="app.docs">
-    Need help?
-  </a>
   <a class="dropdown-item" ui-sref="access.signin">Sign out</a>
 </div>
               </li>
@@ -192,7 +169,7 @@
     <div ui-view class="app-body" id="view">
 
 <!-- ############ PAGE START-->
-
+@yield('content')
 
 <!-- ############ PAGE END-->
 
@@ -224,7 +201,8 @@
   <script src="{{ asset('scripts/ui-scroll-to.js') }}"></script>
   <script src="{{ asset('scripts/ui-toggle-class.js') }}"></script>
 
-  <script src="scripts/app.js"></script>
+	<script src="scripts/app.js"></script>
+	@yield('js')
 <!-- endbuild -->
 </body>
 </html>
