@@ -13,9 +13,17 @@ class CreateAdminsTable extends Migration
      */
     public function up()
     {
-        Schema::create('admins', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        Schema::create('admin', function (Blueprint $table) {
+            $table->string('id');
+            $table->string('nama');
+            $table->string('alamat')->nullable();
+            $table->string('jk')->nullable();
+            $table->date('tanggalLahir')->nullable();
+            $table->string('noTlp')->nullable();
+            $table->string('email')->unique();
+            $table->string('user_id')->nullable();
             $table->timestamps();
+            $table->primary('id');
         });
     }
 
@@ -26,6 +34,6 @@ class CreateAdminsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('admins');
+        Schema::dropIfExists('admin');
     }
 }
