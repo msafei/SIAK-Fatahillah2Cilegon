@@ -7,7 +7,7 @@
 @endsection
 @section('title')
             <!-- Page title - Bind to $state's title -->
-            <div class="mb-0 h5 no-wrap"  id="pageTitle">Data User</div>
+            <div class="mb-0 h5 no-wrap"  id="pageTitle">Data Admin</div>
         
             <!-- navbar collapse -->
 
