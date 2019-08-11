@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Admin;
+use App\User;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -13,7 +14,8 @@ class AdminController extends Controller
      */
     public function index()
     {
-        //
+        $admin = Admin::all();
+        return view ('admin.index',compact('admin'));
     }
 
     /**
@@ -23,7 +25,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
+        return view ('admin.create');
     }
 
     /**
@@ -34,7 +36,22 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+       
+        ]);
+        
+        $user = new User;
+        $user->role = 'admin';
+        $user->name = $request->nama;
+        $user->email = $request->email;
+        $user->username = $request->id;
+        $user->password = bcrypt($request->id);
+        $user->remember_token = str_random(60);
+        $user->save();
+        
+        $request->request->add(['user_id' => $user->id]);
+        $admin = Admin::create($request->all());
+        return redirect()->route('admin.index')->with('success','Data telah dibuat');
     }
 
     /**
@@ -45,7 +62,7 @@ class AdminController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**

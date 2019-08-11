@@ -7,15 +7,59 @@
 @endsection
 @section('title')
             <!-- Page title - Bind to $state's title -->
-            <div class="mb-0 h5 no-wrap"  id="pageTitle">Data User</div>
+            <div class="mb-0 h5 no-wrap"  id="pageTitle">Tambah Admin</div>
             <!-- navbar collapse -->
-              <div class="nav-link">
-              <span><a class="btn btn-outline b-success text-success"><i class="fa fa-fw fa-plus "></i>Tambah</a></span>                
-              <span><a class="btn btn-outline b-info text-info"><i class="fa fa-fw fa-plus "></i>Export</a></span>    
-              <span><a class="btn btn-outline b-info text-info"><i class="fa fa-fw fa-plus "></i>Import</a></span>
-              <span><a class="btn btn-outline b-info text-info"><i class="fa fa-fw fa-plus "></i>Print</a></span>             
-              <!-- / -->
-            </div>
 @endsection
 @section('content')
+<div class="padding">
+  
+  <div class="row">
+    <div class="col-sm-6">
+      <form method="post" action="{{route('admin.store')}}" ui-jp="parsley">
+        <div class="box">
+          <div class="box-body">
+
+            <div class="form-group">
+              @csrf
+              <label>NIP</label>
+              <input name="id" type="text" class="form-control" placeholder="Nomor Induk Pegawai" required>                        
+            </div>
+
+            <div class="form-group">
+              <label>Nama</label>
+              <input name="nama" type="text" class="form-control" placeholder="Nama" required>                        
+            </div>
+
+            <div class="form-group">
+              <label>Jenis Kelamin</label>
+              <input name="jk" type="text" class="form-control" placeholder="Jenis Kelamin" required>                        
+            </div>
+
+            <div class="form-group">
+              <label>Tanggal Lahir</label>
+              <input name="tanggalLahir" type="text" class="form-control" placeholder="Tanggal Lahir">                        
+            </div>
+
+            
+            <div class="form-group">
+              <label>No Telp</label>
+              <input name="noTlp" type="text" class="form-control" placeholder="No Telp">                        
+            </div>
+
+            <div class="form-group">
+              <label>Email</label>
+              <input name="email" type="email" class="form-control" placeholder="email">                        
+            </div>
+
+
+           
+          </div>
+          <div class="dker p-a text-right">
+            <button type="submit" class="btn info"><a>Simpan</a></button>
+          </div>
+        </div>
+      </form>
+    </div>
+    </div>
+    </div>
 @endsection

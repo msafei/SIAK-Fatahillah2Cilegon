@@ -168,14 +168,10 @@
 
     <div ui-view class="app-body" id="view">
 
+
 <!-- ############ PAGE START-->
 @yield('content')
 
-<!-- ############ PAGE END-->
-
-    </div>
-  </div>
-  <!-- / -->
   </div>
 <!-- build:js scripts/app.html.js -->
 <!-- jQuery -->

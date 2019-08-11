@@ -31,8 +31,12 @@
                                     <table id="responsive-datatable" class="table table-bordered table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
                                         <thead>
                                         <tr>
-                                            <th>Name</th>
-                                            <th>Username</th>
+                                            <th>NIP</th>
+                                            <th>Nama</th>
+                                            <th>Jenis Kelamin</th>
+                                            <th>Alamat</th>
+                                            <th>Tanggal Lahir</th>
+                                            <th>No Telp</th>
                                             <th>Email</th>
                                             <th></th>
                                         </tr>
@@ -40,12 +44,18 @@
 
 
                                         <tbody>
-                                            @foreach($user as $user)
+                                            @foreach($admin as $admin)
                                         <tr>
-                                            <td>{{$user->name}}</td>
-                                            <td>{{$user->username}}</td>
-                                            <td>{{$user->email}}</td>
+                                            <td>{{$admin->id}}</td>
+                                            <td>{{$admin->nama}}</td>
+                                            <td>{{$admin->jk}}</td>
+                                            <td>{{$admin->alamat}}</td>
+                                            <td>{{$admin->tanggalLahir}}</td>
+                                            <td>{{$admin->noTlp}}</td>
+                                            <td>{{$admin->email}}</td>
                                             <td> <button class="btn btn-icon btn-rounded btn-success">
+              <a><i class="fa fa-eye"></i></a></button>
+              <button class="btn btn-icon btn-rounded btn-success">
               <a><i class="fa fa-eye"></i></a>
 </button></td>
                                         </tr>
