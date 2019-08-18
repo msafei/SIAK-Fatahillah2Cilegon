@@ -134,7 +134,8 @@
 										<div class="dropdown-divider"></div>
 										<a class="dropdown-item" href="#">Account Setting</a>
 										<div class="dropdown-divider"></div>
-										<a class="dropdown-item" href="#">Logout</a>
+										<a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">Logout</a>
 									</li>
 								</div>
 							</ul>
@@ -176,8 +177,9 @@
 										</a>
 									</li>
 									<li>
-										<a href="#settings">
-											<span class="link-collapse">Settings</span>
+										<a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+											<span class="link-collapse">Logout</span>
 										</a>
 									</li>
 								</ul>

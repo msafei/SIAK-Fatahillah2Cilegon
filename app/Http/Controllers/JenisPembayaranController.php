@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Jurusan;
+use App\JenisPembayaran;
+
 use Illuminate\Http\Request;
 
-class JurusanController extends Controller
+class JenisPembayaranController extends Controller
 {/**
      * Display a listing of the resource.
      *
@@ -12,8 +13,8 @@ class JurusanController extends Controller
      */
     public function index()
     {
-        $jurusan = Jurusan::all();
-        return view ('jurusan.index',compact('jurusan'));
+        $jenisPembayaran = JenisPembayaran::all();
+        return view ('jenis-pembayaran.index',compact('jenisPembayaran'));
     }
 
     /**
@@ -23,7 +24,7 @@ class JurusanController extends Controller
      */
     public function create()
     {
-        return view ('jurusan.create');
+        return view ('jenis-pembayaran.create');
     }
 
     /**
@@ -38,8 +39,8 @@ class JurusanController extends Controller
        
         ]);
   
-        $jurusan = Jurusan::create($request->all());
-        return redirect()->route('jurusan.index')->with('success','Data telah dibuat');
+        $jenisPembayaran = JenisPembayaran::create($request->all());
+        return redirect()->route('jenis-pembayaran.index')->with('success','Data telah dibuat');
     }
 
     /**
@@ -61,8 +62,8 @@ class JurusanController extends Controller
      */
     public function edit($id)
     {
-        $jurusan = Jurusan::findOrFail($id);
-        return view('jurusan.edit',compact('jurusan'));
+        $jenisPembayaran = JenisPembayaran::findOrFail($id);
+        return view('jenis-pembayaran.edit',compact('jenisPembayaran'));
     }
 
     /**
@@ -74,9 +75,9 @@ class JurusanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $jurusan = Jurusan::find($id);
-        $jurusan->update($request->all());
-        return redirect('/jurusan');
+        $jenisPembayaran = JenisPembayaran::find($id);
+        $jenisPembayaran->update($request->all());
+        return redirect('/jenis-pembayaran');
     }
 
     /**
@@ -87,8 +88,8 @@ class JurusanController extends Controller
      */
     public function destroy($id)
     {
-        $jurusan = Jurusan::findOrFail($id);
-        $jurusan->delete();
-        return redirect('/jurusan');
+        $jenisPembayaran = JenisPembayaran::findOrFail($id);
+        $jenisPembayaran->delete();
+        return redirect('/jenis-pembayaran');
     }
 }

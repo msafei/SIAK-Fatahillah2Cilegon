@@ -22,3 +22,5 @@ Route::resource('/user', 'UserController');
 Route::resource('/admin', 'AdminController');
 Route::resource('/kepsek', 'KepsekController');
 Route::resource('/jurusan', 'JurusanController');
+Route::resource('/kelas', 'KelasController');
+Route::resource('/jenis-pembayaran', 'JenisPembayaranController');
