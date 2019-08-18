@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<title>Atlantis Lite - Bootstrap 4 Admin Dashboard</title>
+	<title>SIAK-FAT2CIL</title>
 	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
 	<link rel="icon" href="{{ asset('assets/img/icon.ico')}}" type="image/x-icon"/>
 
@@ -54,7 +54,6 @@
 				
 				<div class="container-fluid">
         <ul class="navbar-nav nav-left topbar-nav">
-          @yield('title')
   </ul>
 					<ul class="navbar-nav topbar-nav ml-md-auto align-items-center">	
 						<li class="nav-item dropdown hidden-caret">
@@ -198,7 +197,7 @@
 							</span>
 							<h4 class="text-section">Menu</h4>
 						</li>
-						<li class="nav-item @yield('active-user') @yield('active-admin')submenu">
+						<li class="nav-item @yield('active-user') @yield('active-admin') @yield('active-kepsek') submenu">
 							<a data-toggle="collapse" href="#base">
 								<i class="fas fa-layer-group"></i>
 								<p>Master</p>
@@ -214,6 +213,11 @@
 									<li class="@yield('active-admin')">
 										<a href="/admin">
 											<span class="sub-item">Data Admin</span>
+										</a>
+									</li>
+									<li class="@yield('active-kepsek')">
+										<a href="/kepsek">
+											<span class="sub-item">Data Kepsek</span>
 										</a>
 									</li>
 								</ul>

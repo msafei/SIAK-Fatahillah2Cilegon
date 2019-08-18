@@ -5,16 +5,6 @@ show
 @section('active-admin')
 active
 @endsection
-@section('title')
-
-              <div class="nav-link">
-              
-           
-
-              
-              <!-- / -->
-            </div>
-@endsection
 @section('content')
 <div class="page-inner">
 					<div class="page-header">

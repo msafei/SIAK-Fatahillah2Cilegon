@@ -2,25 +2,15 @@
 @section('show-master')
 show
 @endsection
-@section('active-admin')
+@section('active-kepsek')
 active
-@endsection
-@section('title')
-
-              <div class="nav-link">
-              
-           
-
-              
-              <!-- / -->
-            </div>
 @endsection
 @section('content')
 <div class="page-inner">
 					<div class="page-header">
-          <a href="/admin"><button type="button" class="btn btn-icon btn-link">
+          <a href="/kepsek"><button type="button" class="btn btn-icon btn-link">
 						<i class="fas fa-arrow-left"></i></button></a>       
-						<h4 class="page-title">Edit Admin</h4>
+						<h4 class="page-title">Edit Kepsek</h4>
 						<ul class="breadcrumbs">
 							<li class="nav-home">
 								<a href="/home">
@@ -31,13 +21,13 @@ active
 								<i class="flaticon-right-arrow"></i>
 							</li>
 							<li class="nav-item">
-								<a href="/admin">Data Admin</a>
+								<a href="/kepsek">Data Kepsek</a>
               </li>
               <li class="separator">
 								<i class="flaticon-right-arrow"></i>
 							</li>
               <li class="nav-item">
-								<a >Edit Admin</a>
+								<a >Edit Kepsek</a>
 							</li>
 							</ul>
 					</div>
@@ -48,7 +38,7 @@ active
 									<div class="row">
 										<div class="col-md-12">
                                     
-                    <form method="post" action="{{route('admin.update',$admin->id)}}" ui-jp="parsley">
+                    <form method="post" action="{{route('kepsek.update',$kepsek->id)}}" ui-jp="parsley">
         <div class="box">
           <div class="box-body">
 
@@ -56,12 +46,12 @@ active
               @csrf
               @method('PATCH')
               <label>NIP</label>
-              <input name="id" type="text" class="form-control" placeholder="Nomor Induk Pegawai" value="{{$admin->id}}" disabled>                        
+              <input name="id" type="text" class="form-control" placeholder="Nomor Induk Pegawai" value="{{$kepsek->id}}" disabled>                        
             </div>
 
             <div class="form-group">
               <label>Nama</label>
-              <input name="nama" type="text" class="form-control" placeholder="Nama" value="{{$admin->nama}}">                        
+              <input name="nama" type="text" class="form-control" placeholder="Nama" value="{{$kepsek->nama}}">                        
             </div>
 
             <div class="form-group">
@@ -74,30 +64,30 @@ active
 
             <div class="form-group">
               <label>Tanggal Lahir</label>
-              <input name="tanggalLahir" type="text" class="form-control" placeholder="Tanggal Lahir" value="{{$admin->tanggalLahir}}">                        
+              <input name="tanggalLahir" type="text" class="form-control" placeholder="Tanggal Lahir" value="{{$kepsek->tanggalLahir}}">                        
             </div>
 
             <div class="form-group">
                 <label>Alamat</label>
-                <textarea name="alamat" class="form-control" rows="6" data-minwords="6" placeholder="Alamat" value="{{$admin->alamat}}"></textarea>
+                <textarea name="alamat" class="form-control" rows="6" data-minwords="6" placeholder="Alamat" value="{{$kepsek->alamat}}"></textarea>
               </div>
 
             
             <div class="form-group">
               <label>No Telp</label>
-              <input name="noTlp" type="text" class="form-control" placeholder="No Telp" value="{{$admin->noTlp}}">                        
+              <input name="noTlp" type="text" class="form-control" placeholder="No Telp" value="{{$kepsek->noTlp}}">                        
             </div>
 
             <div class="form-group">
               <label>Email</label>
-              <input name="email" type="email" class="form-control" placeholder="email" value="{{$admin->email}}">                        
+              <input name="email" type="email" class="form-control" placeholder="email" value="{{$kepsek->email}}">                        
             </div>
 
 
            
           </div>
           <div class="card-action text-right">
-            <a href="/admin"><button class="btn btn-danger"><a>Batal</a></button></a>
+            <a href="/kepsek"><button class="btn btn-danger"><a>Batal</a></button></a>
                   <button type="submit" class="btn btn-success"><a>Ubah</a></button>
                   
 								</div>

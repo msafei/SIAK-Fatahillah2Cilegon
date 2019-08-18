@@ -39,14 +39,14 @@ class KepsekController extends Controller
        
         ]);
         
-        $kepsek = new Kepsek;
-        $kepsek->role = 'kepsek';
-        $kepsek->name = $request->nama;
-        $kepsek->email = $request->email;
-        $kepsek->username = $request->id;
-        $kepsek->password = bcrypt($request->id);
-        $kepsek->remember_token = str_random(60);
-        $kepsek->save();
+        $user = new User;
+        $user->role = 'kepsek';
+        $user->name = $request->nama;
+        $user->email = $request->email;
+        $user->username = $request->id;
+        $user->password = bcrypt($request->id);
+        $user->remember_token = str_random(60);
+        $user->save();
         
         $request->request->add(['user_id' => $user->id]);
         $kepsek = Kepsek::create($request->all());

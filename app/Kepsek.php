@@ -10,4 +10,5 @@ class Kepsek extends Model
     protected $fillable = [
         'id', 'nama','alamat', 'jk','tanggalLahir','noTlp','email','user_id',
     ];
+    public $incrementing = false;
 }

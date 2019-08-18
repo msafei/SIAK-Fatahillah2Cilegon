@@ -8,24 +8,14 @@
 @section('show-master')
 show
 @endsection
-@section('active-admin')
+@section('active-kepsek')
 active
-@endsection
-@section('title')
-
-              <div class="nav-link">
-              
-           
-
-              
-              <!-- / -->
-            </div>
 @endsection
 @section('content')
 <div class="page-inner">
 					<div class="page-header">
                     
-						<h4 class="page-title">Data Admin</h4>
+						<h4 class="page-title">Data Kepsek</h4>
 						<ul class="breadcrumbs">
 							<li class="nav-home">
 								<a href="/home">
@@ -36,7 +26,7 @@ active
 								<i class="flaticon-right-arrow"></i>
 							</li>
 							<li class="nav-item">
-								<a href="/admin">Data Admin</a>
+								<a href="/kepsek">Data Kepsek</a>
 							</li>
 							</ul>
 					</div>
@@ -45,7 +35,7 @@ active
 							<div class="card">
                             <div class="card-header">
                                 
-                            <a href="{{route('admin.create')}}"><button class="btn btn-success btn-sm"><span  class="btn-label"><i class="fa fas fa-plus"> </i></span>  Tambah</button></a>
+                            <a href="{{route('kepsek.create')}}"><button class="btn btn-success btn-sm"><span  class="btn-label"><i class="fa fas fa-plus"> </i></span>  Tambah</button></a>
               <button class="btn btn-primary btn-sm"><span class="btn-label"><i class="fa fas fa-file-export"> </i></span>  Export</button>
               <button class="btn btn-secondary btn-sm"><span class="btn-label"><i class="fa fas fa-file-import"> </i></span>  Import</button>
             
@@ -70,20 +60,20 @@ active
 
 
                                         <tbody>
-                                            @foreach($admin as $admin)
+                                            @foreach($kepsek as $kepsek)
                                         <tr>
-                                            <td>{{$admin->id}}</td>
-                                            <td>{{$admin->nama}}</td>
-                                            <td>{{$admin->jk}}</td>
-                                            <td>{{$admin->alamat}}</td>
-                                            <td>{{$admin->tanggalLahir}}</td>
-                                            <td>{{$admin->noTlp}}</td>
+                                            <td>{{$kepsek->id}}</td>
+                                            <td>{{$kepsek->nama}}</td>
+                                            <td>{{$kepsek->jk}}</td>
+                                            <td>{{$kepsek->alamat}}</td>
+                                            <td>{{$kepsek->tanggalLahir}}</td>
+                                            <td>{{$kepsek->noTlp}}</td>
                                             <td>
-                                                            <form action="{{route('admin.destroy',$admin->id)}}" method="post">
+                                                            <form action="{{route('kepsek.destroy',$kepsek->id)}}" method="post">
                                                             @csrf
                                                             @method('DELETE')
 															<button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary" data-original-title="Edit data">
-																<a href="{{route('admin.edit',$admin->id)}}"><i class="fa fa-edit"></i></a>
+																<a href="{{route('kepsek.edit',$kepsek->id)}}"><i class="fa fa-edit"></i></a>
                                                             </button>
 															<button type="submit" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Hapus data">
 																<i class="fa fa-times"></i>

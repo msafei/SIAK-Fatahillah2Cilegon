@@ -2,25 +2,15 @@
 @section('show-master')
 show
 @endsection
-@section('active-admin')
+@section('active-kepsek')
 active
-@endsection
-@section('title')
-
-              <div class="nav-link">
-              
-           
-
-              
-              <!-- / -->
-            </div>
 @endsection
 @section('content')
 <div class="page-inner">
 					<div class="page-header">
-          <a href="/admin"><button type="button" class="btn btn-icon btn-link">
+          <a href="/kepsek"><button type="button" class="btn btn-icon btn-link">
 						<i class="fas fa-arrow-left"></i></button></a>       
-						<h4 class="page-title">Tambah Admin</h4>
+						<h4 class="page-title">Tambah Kepsek</h4>
 						<ul class="breadcrumbs">
 							<li class="nav-home">
 								<a href="/home">
@@ -31,13 +21,13 @@ active
 								<i class="flaticon-right-arrow"></i>
 							</li>
 							<li class="nav-item">
-								<a href="/admin">Data Admin</a>
+								<a href="/kepsek">Data Kepsek</a>
               </li>
               <li class="separator">
 								<i class="flaticon-right-arrow"></i>
 							</li>
               <li class="nav-item">
-								<a >Tambah Admin</a>
+								<a >Tambah Kepsek</a>
 							</li>
 							</ul>
 					</div>
@@ -48,7 +38,7 @@ active
 									<div class="row">
 										<div class="col-md-12">
                                     
-                    <form method="post" action="{{route('admin.store')}}" ui-jp="parsley">
+                    <form method="post" action="{{route('kepsek.store')}}" ui-jp="parsley">
         <div class="box">
           <div class="box-body">
 
@@ -99,7 +89,7 @@ active
           </div>
           <div class="card-action">
           <button type="submit" class="btn btn-success"><a>Ubah</a></button>
-                  <a href="/admin"><button class="btn btn-danger"><a>Batal</a></button></a>
+                  <a href="/kepsek"><button class="btn btn-danger"><a>Batal</a></button></a>
 								</div>
           
         </div>
