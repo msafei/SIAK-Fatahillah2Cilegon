@@ -88,13 +88,13 @@ active
            
           </div>
           <div class="card-action">
-          <button type="submit" class="btn btn-success"><a>Ubah</a></button>
+          <button type="submit" class="btn btn-success"><a>Simpan</a></button>
                   <a href="/admin"><button class="btn btn-danger"><a>Batal</a></button></a>
 								</div>
           
         </div>
       </form>
-                        </div> 
+  </div> 
   </div>
 </div>
 </div>

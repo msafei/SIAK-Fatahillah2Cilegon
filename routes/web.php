@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('/login');
+    return view('auth.login');
 });
 
 Auth::routes();
@@ -21,3 +21,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/user', 'UserController');
 Route::resource('/admin', 'AdminController');
 Route::resource('/kepsek', 'KepsekController');
+Route::resource('/jurusan', 'JurusanController');

@@ -8,14 +8,14 @@
 @section('show-master')
 show
 @endsection
-@section('active-admin')
+@section('active-jurusan')
 active
 @endsection
 @section('content')
 <div class="page-inner">
 					<div class="page-header">
                     
-						<h4 class="page-title">Data Admin</h4>
+						<h4 class="page-title">Data Jurusan</h4>
 						<ul class="breadcrumbs">
 							<li class="nav-home">
 								<a href="/home">
@@ -26,7 +26,7 @@ active
 								<i class="flaticon-right-arrow"></i>
 							</li>
 							<li class="nav-item">
-								<a href="/admin">Data Admin</a>
+								<a href="/jurusan">Data Jurusan</a>
 							</li>
 							</ul>
 					</div>
@@ -35,7 +35,7 @@ active
 							<div class="card">
                             <div class="card-header">
                                 
-                            <a href="{{route('admin.create')}}"><button class="btn btn-success btn-sm"><span  class="btn-label"><i class="fa fas fa-plus"> </i></span>  Tambah</button></a>
+                            <a href="{{route('jurusan.create')}}"><button class="btn btn-success btn-sm"><span  class="btn-label"><i class="fa fas fa-plus"> </i></span>  Tambah</button></a>
               <button class="btn btn-primary btn-sm"><span class="btn-label"><i class="fa fas fa-file-export"> </i></span>  Export</button>
               <button class="btn btn-secondary btn-sm"><span class="btn-label"><i class="fa fas fa-file-import"> </i></span>  Import</button>
             
@@ -47,33 +47,27 @@ active
 										<div class="col-md-12">
                                     <table id="responsive-datatable" class="table dt-responsive nowrap display table table-striped table-hover" cellspacing="0" width="100%">
                                         <thead>
-                                        <tr class="text-center">
-                                            <th>NIP</th>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th style="width: 10%">Kode</th>
                                             <th>Nama</th>
-                                            <th>Jenis Kelamin</th>
-                                            <th>Alamat</th>
-                                            <th>Tanggal Lahir</th>
-                                            <th>No Telp</th>
                                             <th style="width: 10%">Aksi</th>
                                         </tr>
                                         </thead>
 
 
                                         <tbody>
-                                            @foreach($admin as $admin)
+                                            @foreach($jurusan as $jurusan)
                                         <tr>
-                                            <td>{{$admin->id}}</td>
-                                            <td>{{$admin->nama}}</td>
-                                            <td>{{$admin->jk}}</td>
-                                            <td>{{$admin->alamat}}</td>
-                                            <td>{{$admin->tanggalLahir}}</td>
-                                            <td>{{$admin->noTlp}}</td>
+                                            <td>{{$jurusan->id}}</td>
+                                            <td>{{$jurusan->kode}}</td>
+                                            <td>{{$jurusan->nama}}</td>
                                             <td>
-                                                            <form action="{{route('admin.destroy',$admin->id)}}" method="post">
+                                                            <form action="{{route('jurusan.destroy',$jurusan->id)}}" method="post">
                                                             @csrf
                                                             @method('DELETE')
 															<button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary" data-original-title="Edit data">
-																<a href="{{route('admin.edit',$admin->id)}}"><i class="fa fa-edit"></i></a>
+																<a href="{{route('jurusan.edit',$jurusan->id)}}"><i class="fa fa-edit"></i></a>
                                                             </button>
 															<button type="submit" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Hapus data">
 																<i class="fa fa-times"></i>
