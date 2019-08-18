@@ -73,7 +73,8 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
-        //
+        $admin = Admin::findOrFail($id);
+        return view('admin.edit',compact('admin'));
     }
 
     /**
@@ -85,7 +86,9 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $admin = Admin::find($id);
+        $admin->update($request->all());
+        return redirect('/admin');
     }
 
     /**
@@ -96,6 +99,8 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $admin = Admin::findOrFail($id);
+        $admin->delete();
+        return redirect('/admin');
     }
 }

@@ -5,36 +5,62 @@
         <!-- Responsive datatable examples -->
         <link href="{{ asset('plugins/datatables/responsive.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
 @endsection
+@section('show-master')
+show
+@endsection
+@section('active-user')
+active
+@endsection
 @section('title')
-            <!-- Page title - Bind to $state's title -->
-            <div class="mb-0 h5 no-wrap"  id="pageTitle">Data User</div>
-        
-            <!-- navbar collapse -->
 
               <div class="nav-link">
-              <span><a class="btn btn-outline b-success text-success"><i class="fa fa-fw fa-plus "></i>Tambah</a></span>                
-              <span><a class="btn btn-outline b-info text-info"><i class="fa fa-fw fa-plus "></i>Export</a></span>    
-              <span><a class="btn btn-outline b-info text-info"><i class="fa fa-fw fa-plus "></i>Import</a></span>
-              <span><a class="btn btn-outline b-info text-info"><i class="fa fa-fw fa-plus "></i>Print</a></span>             
+              
+           
 
               
               <!-- / -->
             </div>
 @endsection
 @section('content')
-<div class="padding">
-  <div class="box">
-<div class="row">
-                            <div class="col-12">
-                               
-
-                                    <table id="responsive-datatable" class="table table-bordered table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
+<div class="page-inner">
+					<div class="page-header">
+                    
+						<h4 class="page-title">Data User</h4>
+						<ul class="breadcrumbs">
+							<li class="nav-home">
+								<a href="/home">
+									<i class="flaticon-home"></i>
+								</a>
+							</li>
+							<li class="separator">
+								<i class="flaticon-right-arrow"></i>
+							</li>
+							<li class="nav-item">
+								<a href="/user">Data User</a>
+							</li>
+							</ul>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="card">
+                            <div class="card-header">
+                                
+                            <a href="{{route('user.create')}}"><button class="btn btn-success btn-sm"><span  class="btn-label"><i class="fa fas fa-plus"> </i></span>  Tambah</button></a>
+              <button class="btn btn-primary btn-sm"><span class="btn-label"><i class="fa fas fa-file-export"> </i></span>  Export</button>
+              <button class="btn btn-secondary btn-sm"><span class="btn-label"><i class="fa fas fa-file-import"> </i></span>  Import</button>
+              
+            
+            </div>
+								<div class="card-body">
+									<div class="row">
+										<div class="col-md-12">
+                                    <table id="responsive-datatable" class="table dt-responsive nowrap display table table-striped table-hover" cellspacing="0" width="100%">
                                         <thead>
-                                        <tr>
-                                            <th>Name</th>
+                                        <tr class="text-center">
+                                            <th>Nama</th>
                                             <th>Username</th>
                                             <th>Email</th>
-                                            <th></th>
+                                            <th style="width: 10%">Aksi</th>
                                         </tr>
                                         </thead>
 
@@ -45,9 +71,19 @@
                                             <td>{{$user->name}}</td>
                                             <td>{{$user->username}}</td>
                                             <td>{{$user->email}}</td>
-                                            <td> <button class="btn btn-icon btn-rounded btn-success">
-              <a><i class="fa fa-eye"></i></a>
-</button></td>
+                                            <td>
+                                                
+                                            <form action="{{route('user.destroy',$user->id)}}" method="post">
+                                                            @csrf
+                                                            @method('DELETE')
+															<button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary" data-original-title="Edit data">
+																<a href="{{route('user.edit',$user->id)}}"><i class="fa fa-edit"></i></a>
+                                                            </button>
+															<button type="submit" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Hapus data">
+																<i class="fa fa-times"></i>
+                                                            </button>
+                                                            </form>
+                                        </td>
                                         </tr>
                                         @endforeach
                                         </tbody>
@@ -56,8 +92,11 @@
                         </div> 
   </div>
 </div>
-<!-- end row -->
-
+</div>
+</div>
+</div>
+</div>
+</div>
 @endsection
 @section('js')
 <script src="{{ asset('plugins/datatables/jquery.dataTables.min.js') }}"></script>
@@ -69,32 +108,10 @@
 
                 // Default Datatable
                 $('#datatable').DataTable();
-
-                //Buttons examples
-                var table = $('#datatable-buttons').DataTable({
-                    lengthChange: false,
-                    buttons: ['copy', 'excel', 'pdf']
-                });
-
-                // Key Tables
-
-                $('#key-table').DataTable({
-                    keys: true
-                });
-
+        
                 // Responsive Datatable
                 $('#responsive-datatable').DataTable();
 
-                // Multi Selection Datatable
-                $('#selection-datatable').DataTable({
-                    select: {
-                        style: 'multi'
-                    }
-                });
-
-                table.buttons().container()
-                        .appendTo('#datatable-buttons_wrapper .col-md-6:eq(0)');
-            } );
-
+            });
         </script>
         @endsection
