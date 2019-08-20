@@ -1,8 +1,8 @@
 @extends('layouts.dashboard')
-@section('show-master')
+@section('show-setting')
 show
 @endsection
-@section('active-jenis-pembayaran')
+@section('active-jenisPembayaran')
 active
 @endsection
 @section('content')

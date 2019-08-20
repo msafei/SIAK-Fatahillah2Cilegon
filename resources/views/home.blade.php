@@ -16,48 +16,80 @@ active
 						</div>
 					</div>
 				</div>
+
+				<!-- Widget -->
 				<div class="page-inner mt--5">
-					<div class="row mt--2">
-						<div class="col-md-6">
-							<div class="card full-height">
-								<div class="card-body">
-									<div class="card-title">Overall statistics</div>
-									<div class="card-category">Daily information about statistics in system</div>
-									<div class="d-flex flex-wrap justify-content-around pb-2 pt-4">
-										<div class="px-2 pb-2 pb-md-0 text-center">
-											<div id="circles-1"></div>
-											<h6 class="fw-bold mt-3 mb-0">Transaksi</h6>
+					<div class="row">
+						<div class="col-sm-6 col-md-3">
+							<div class="card card-stats card-round">
+								<div class="card-body ">
+									<div class="row align-items-center">
+										<div class="col-icon">
+											<div class="icon-big text-center icon-primary bubble-shadow-small">
+												<i class="flaticon-users"></i>
+											</div>
 										</div>
-										<div class="px-2 pb-2 pb-md-0 text-center">
-											<div id="circles-2"></div>
-											<h6 class="fw-bold mt-3 mb-0">Siswa</h6>
-										</div>
-										<div class="px-2 pb-2 pb-md-0 text-center">
-											<div id="circles-3"></div>
-											<h6 class="fw-bold mt-3 mb-0">Tunggakan Siswa</h6>
+										<div class="col col-stats ml-3 ml-sm-0">
+											<div class="numbers">
+												<p class="card-category">Visitors</p>
+												<h4 class="card-title">1,294</h4>
+											</div>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="col-md-6">
-							<div class="card full-height">
+						<div class="col-sm-6 col-md-3">
+							<div class="card card-stats card-round">
 								<div class="card-body">
-									<div class="card-title">Total income & spend statistics</div>
-									<div class="row py-3">
-										<div class="col-md-4 d-flex flex-column justify-content-around">
-											<div>
-												<h6 class="fw-bold text-uppercase text-success op-8">Total Income</h6>
-												<h3 class="fw-bold">$9.782</h3>
-											</div>
-											<div>
-												<h6 class="fw-bold text-uppercase text-danger op-8">Total Spend</h6>
-												<h3 class="fw-bold">$1,248</h3>
+									<div class="row align-items-center">
+										<div class="col-icon">
+											<div class="icon-big text-center icon-info bubble-shadow-small">
+												<i class="flaticon-interface-6"></i>
 											</div>
 										</div>
-										<div class="col-md-8">
-											<div id="chart-container">
-												<canvas id="totalIncomeChart"></canvas>
+										<div class="col col-stats ml-3 ml-sm-0">
+											<div class="numbers">
+												<p class="card-category">Subscribers</p>
+												<h4 class="card-title">1303</h4>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6 col-md-3">
+							<div class="card card-stats card-round">
+								<div class="card-body">
+									<div class="row align-items-center">
+										<div class="col-icon">
+											<div class="icon-big text-center icon-success bubble-shadow-small">
+												<i class="flaticon-graph"></i>
+											</div>
+										</div>
+										<div class="col col-stats ml-3 ml-sm-0">
+											<div class="numbers">
+												<p class="card-category">Sales</p>
+												<h4 class="card-title">$ 1,345</h4>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6 col-md-3">
+							<div class="card card-stats card-round">
+								<div class="card-body">
+									<div class="row align-items-center">
+										<div class="col-icon">
+											<div class="icon-big text-center icon-secondary bubble-shadow-small">
+												<i class="flaticon-success"></i>
+											</div>
+										</div>
+										<div class="col col-stats ml-3 ml-sm-0">
+											<div class="numbers">
+												<p class="card-category">Order</p>
+												<h4 class="card-title">576</h4>
 											</div>
 										</div>
 									</div>
@@ -65,7 +97,9 @@ active
 							</div>
 						</div>
 					</div>
-                    
+					<!-- // -->
+					
+
                     </div>
 					</div>
 @endsection

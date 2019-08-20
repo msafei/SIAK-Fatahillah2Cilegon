@@ -205,13 +205,13 @@
 							</span>
 							<h4 class="text-section">Menu</h4>
 						</li>
-						<li class="nav-item @yield('active-user') @yield('active-admin') @yield('active-kepsek') submenu">
-							<a data-toggle="collapse" href="#base">
+						<li class="nav-item @yield('active-user') @yield('active-admin') @yield('active-kepsek') @yield('active-jurusan') @yield('active-kelas') submenu">
+							<a data-toggle="collapse" href="#master">
 								<i class="fas fa-layer-group"></i>
 								<p>Master</p>
 								<span class="caret"></span>
 							</a>
-							<div class="collapse @yield('show-master')" id="base">
+							<div class="collapse @yield('show-master')" id="master">
 								<ul class="nav nav-collapse">
 									<li class="@yield('active-user')">
 										<a href="/user">
@@ -228,46 +228,49 @@
 											<span class="sub-item">Data Kepsek</span>
 										</a>
 									</li>
+									<li class="@yield('active-jurusan')">
+										<a href="/jurusan">
+											<span class="sub-item">Data Jurusan</span>
+										</a>
+									</li>
+									<li class="@yield('active-kelas')">
+										<a href="/kelas">
+											<span class="sub-item">Data Kelas</span>
+										</a>
+									</li>
 								</ul>
 							</div>
 						</li>
-						<li class="nav-item">
-							<a data-toggle="collapse" href="#sidebarLayouts">
-								<i class="fas fa-th-list"></i>
-								<p>Sidebar Layouts</p>
+						<li class="nav-item @yield('active-jenisPembayaran') @yield('active-nominalPembayaran') @yield('active-nominalSpp') submenu">
+							<a data-toggle="collapse" href="#setting">
+								<i class="fas fa-layer-group"></i>
+								<p>Setting Keuangan</p>
 								<span class="caret"></span>
 							</a>
-							<div class="collapse" id="sidebarLayouts">
+							<div class="collapse @yield('show-setting')" id="setting">
 								<ul class="nav nav-collapse">
-									<li>
-										<a href="../sidebar-style-1.html">
-											<span class="sub-item">Sidebar Style 1</span>
+
+								<li class="@yield('active-jenisPembayaran')">
+										<a href="/jenis-pembayaran">
+											<span class="sub-item">Jenis Pembayaran</span>
 										</a>
 									</li>
-									<li>
-										<a href="../overlay-sidebar.html">
-											<span class="sub-item">Overlay Sidebar</span>
+
+									<li class="@yield('active-nominalPembayaran')">
+										<a href="/nominal-pembayaran">
+											<span class="sub-item">Nominal Pembayaran</span>
 										</a>
 									</li>
-									<li>
-										<a href="../compact-sidebar.html">
-											<span class="sub-item">Compact Sidebar</span>
+
+									<li class="@yield('active-nominalSpp')">
+										<a href="/nominal-spp">
+											<span class="sub-item">Nominal SPP</span>
 										</a>
 									</li>
-									<li>
-										<a href="../static-sidebar.html">
-											<span class="sub-item">Static Sidebar</span>
-										</a>
-									</li>
-									<li>
-										<a href="../icon-menu.html">
-											<span class="sub-item">Icon Menu</span>
-										</a>
-									</li>
+
 								</ul>
 							</div>
-						</li>
-               
+							</li>
 
 				</div>
 			</div>

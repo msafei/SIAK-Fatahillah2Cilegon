@@ -1,8 +1,8 @@
 @extends('layouts.dashboard')
-@section('show-master')
+@section('show-setting')
 show
 @endsection
-@section('active-nominal-spp')
+@section('active-nominalSpp')
 active
 @endsection
 @section('content')

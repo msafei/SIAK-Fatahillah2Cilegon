@@ -5,7 +5,7 @@
         <!-- Responsive datatable examples -->
         <link href="{{ asset('plugins/datatables/responsive.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
 @endsection
-@section('show-master')
+@section('show-setting')
 show
 @endsection
 @section('active-nominalPembayaran')
