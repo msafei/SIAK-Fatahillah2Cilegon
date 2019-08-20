@@ -1,12 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Kepsek;
-use App\User;
+use App\NominalSpp;
+use App\JenisPembayaran;
+use App\Kelas;
 use Illuminate\Http\Request;
 
-class KepsekController extends Controller
-{/**
+class NominalSppController extends Controller
+{
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -18,8 +20,8 @@ class KepsekController extends Controller
     
     public function index()
     {
-        $kepsek = Kepsek::all();
-        return view ('kepsek.index',compact('kepsek'));
+        $nominalSpp = NominalSpp::all();
+        return view ('nominal-spp.index',compact('nominalSpp'));
     }
 
     /**
@@ -29,7 +31,9 @@ class KepsekController extends Controller
      */
     public function create()
     {
-        return view ('kepsek.create');
+        $kelas = kelas::all();
+        $jenisPembayaran = JenisPembayaran::where('kode','=',"spp")->get();
+        return view ('nominal-spp.create',compact('jenisPembayaran','kelas'));
     }
 
     /**
@@ -44,18 +48,8 @@ class KepsekController extends Controller
        
         ]);
         
-        $user = new User;
-        $user->role = 'kepsek';
-        $user->name = $request->nama;
-        $user->email = $request->email;
-        $user->username = $request->id;
-        $user->password = bcrypt($request->id);
-        $user->remember_token = str_random(60);
-        $user->save();
-        
-        $request->request->add(['user_id' => $user->id]);
-        $kepsek = Kepsek::create($request->all());
-        return redirect()->route('kepsek.index')->with('success','Data telah dibuat');
+        $nominalSpp = NominalSpp::create($request->all());
+        return redirect()->route('nominal-spp.index')->with('success','Data telah dibuat');
     }
 
     /**
@@ -77,8 +71,10 @@ class KepsekController extends Controller
      */
     public function edit($id)
     {
-        $kepsek = Kepsek::findOrFail($id);
-        return view('kepsek.edit',compact('kepsek'));
+        $jenisPembayaran = JenisPembayaran::all();
+        $kelas = kelas::all();
+        $nominalSpp = NominalSpp::findOrFail($id);
+        return view('nominal-spp.edit',compact('nominalSpp','jenisPembayaran','kelas'));
     }
 
     /**
@@ -90,9 +86,9 @@ class KepsekController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $kepsek = Kepsek::find($id);
-        $kepsek->update($request->all());
-        return redirect('/kepsek');
+        $nominalSpp = NominalSpp::find($id);
+        $nominalSpp->update($request->all());
+        return redirect('/nominal-spp');
     }
 
     /**
@@ -103,8 +99,8 @@ class KepsekController extends Controller
      */
     public function destroy($id)
     {
-        $kepsek = Kepsek::findOrFail($id);
-        $kepsek->delete();
-        return redirect('/kepsek');
+        $nominalSpp = NominalSpp::findOrFail($id);
+        $nominalSpp->delete();
+        return redirect('/nominal-spp');
     }
 }

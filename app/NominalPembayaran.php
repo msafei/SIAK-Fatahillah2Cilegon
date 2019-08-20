@@ -4,11 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class JenisPembayaran extends Model
+class NominalPembayaran extends Model
 {
-    protected $table ='jenis-pembayaran';
+    protected $table ='nominal_pembayaran';
     protected $fillable = [
-        'id','nama','kode','status'
+        'id','jenis_pembayaran_id','nominal',
     ];
   
     public $incrementing = false;

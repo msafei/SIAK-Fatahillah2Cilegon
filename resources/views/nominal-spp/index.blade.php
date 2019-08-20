@@ -8,14 +8,14 @@
 @section('show-master')
 show
 @endsection
-@section('active-jenisPembayaran')
+@section('active-nominalSpp')
 active
 @endsection
 @section('content')
 <div class="page-inner">
 					<div class="page-header">
                     
-						<h4 class="page-title">Data Jenis Pembayaran</h4>
+						<h4 class="page-title">Data Nominal SPP</h4>
 						<ul class="breadcrumbs">
 							<li class="nav-home">
 								<a href="/home">
@@ -26,7 +26,7 @@ active
 								<i class="flaticon-right-arrow"></i>
 							</li>
 							<li class="nav-item">
-								<a href="/jenis-pembayaran">Data Jenis Pembayaran</a>
+								<a href="/nominal-spp">Data Nominal SPP</a>
 							</li>
 							</ul>
 					</div>
@@ -35,7 +35,7 @@ active
 							<div class="card">
                             <div class="card-header">
                                 
-                            <a href="{{route('jenis-pembayaran.create')}}"><button class="btn btn-success btn-sm"><span  class="btn-label"><i class="fa fas fa-plus"> </i></span>  Tambah</button></a>
+                            <a href="{{route('nominal-spp.create')}}"><button class="btn btn-success btn-sm"><span  class="btn-label"><i class="fa fas fa-plus"> </i></span>  Tambah</button></a>
               <button class="btn btn-primary btn-sm"><span class="btn-label"><i class="fa fas fa-file-export"> </i></span>  Export</button>
               <button class="btn btn-secondary btn-sm"><span class="btn-label"><i class="fa fas fa-file-import"> </i></span>  Import</button>
             
@@ -49,25 +49,27 @@ active
                                         <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Kode Pembayaran</th>
-                                            <th>Jenis Pembayaran</th>
+                                            <th>Jenis SPP</th>
+                                            <th>Kelas</th>
+                                            <th>Nominal SPP</th>
                                             <th style="width: 10%">Aksi</th>
                                         </tr>
                                         </thead>
 
 
                                         <tbody>
-                                            @foreach($jenisPembayaran as $jenisPembayaran)
+                                            @foreach($nominalSpp as $nominalSpp)
                                         <tr>
-                                            <td>{{$jenisPembayaran ->id}}</td>
-                                            <td>{{$jenisPembayaran ->kode}}</td>
-                                            <td>{{$jenisPembayaran ->nama}}</td>
+                                            <td>{{$nominalSpp ->id}}</td>
+                                            <td>{{$nominalSpp ->jenis_pembayaran_id}}</td>
+                                            <td>{{$nominalSpp ->kelas_id}}</td>
+                                            <td>{{$nominalSpp ->nominal}}</td>
                                             <td>
-                                                            <form action="{{route('jenis-pembayaran.destroy',$jenisPembayaran->id)}}" method="post">
+                                                            <form action="{{route('nominal-spp.destroy',$nominalSpp->id)}}" method="post">
                                                             @csrf
                                                             @method('DELETE')
 															<button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary" data-original-title="Edit data">
-																<a href="{{route('jenis-pembayaran.edit',$jenisPembayaran->id)}}"><i class="fa fa-edit"></i></a>
+																<a href="{{route('nominal-spp.edit',$nominalSpp->id)}}"><i class="fa fa-edit"></i></a>
                                                             </button>
 															<button type="submit" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Hapus data">
 																<i class="fa fa-times"></i>

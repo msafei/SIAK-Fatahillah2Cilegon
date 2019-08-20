@@ -9,7 +9,7 @@ active
 <div class="page-inner">
 					<div class="page-header">
           <a href="/jenis-pembayaran"><button type="button" class="btn btn-icon btn-link">
-						<i class="fas fa-arrow-left"></i></button></a>       
+						<i class="fas fa-arrow-left"></i></button></a>
 						<h4 class="page-title">Edit Jenis Pembayaran</h4>
 						<ul class="breadcrumbs">
 							<li class="nav-home">
@@ -37,7 +37,7 @@ active
 								<div class="card-body">
 									<div class="row">
 										<div class="col-md-12">
-                                    
+
                     <form method="post" action="{{route('jenis-pembayaran.update',$jenisPembayaran->id)}}" ui-jp="parsley">
         <div class="box">
           <div class="box-body">
@@ -46,24 +46,32 @@ active
               @csrf
               @method('PATCH')
               <label>ID Jenis Pembayaran</label>
-              <input name="id" type="text" class="form-control" placeholder="ID Jenis Pembayaran" value="{{$jenisPembayaran->id}}" disabled>                        
+              <input name="id" type="text" class="form-control" placeholder="ID Jenis Pembayaran" value="{{$jenisPembayaran->id}}" disabled>
             </div>
 
 						<div class="form-group">
+        <label for="single">Kode Pembayaran</label>
+        <select id="single" name="kode" class="form-control select2" ui-jp="select2" ui-options="{theme: 'bootstrap'}" required>
+            <option value="spp">SPP</option>
+            <option value="non spp">Lain-lain</option>
+        </select>
+      </div>
+
+						<div class="form-group">
               <label>Jenis Pembayaran</label>
-              <input name="nama" type="text" class="form-control" placeholder="Jenis Pembayaran" value="{{$jenisPembayaran->nama}}">                        
+              <input name="nama" type="text" class="form-control" placeholder="Jenis Pembayaran" value="{{$jenisPembayaran->nama}}">
             </div>
 
           </div>
           <div class="card-action text-right">
             <a href="/jenis-pembayaran"><button class="btn btn-danger"><a>Batal</a></button></a>
                   <button type="submit" class="btn btn-success"><a>Ubah</a></button>
-                  
+
 								</div>
-   
+
         </div>
       </form>
-                        </div> 
+                        </div>
   </div>
 </div>
 </div>

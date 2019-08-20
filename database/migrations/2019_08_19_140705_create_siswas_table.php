@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAdminsTable extends Migration
+class CreateSiswasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,18 @@ class CreateAdminsTable extends Migration
      */
     public function up()
     {
-        Schema::create('admin', function (Blueprint $table) {
+        Schema::create('siswa', function (Blueprint $table) {
             $table->string('id');
             $table->string('nama');
-            $table->string('alamat')->nullable();
             $table->string('jk')->nullable();
             $table->date('tanggalLahir')->nullable();
-            $table->string('noTlp')->nullable();
-            $table->string('email')->unique();
+            $table->string('kelas_id')->nullable();
+            $table->string('alamatSiswa')->nullable();
+            $table->string('namaIbu')->nullable();
+            $table->string('namaAyah')->nullable();
+            $table->string('alamatOrtu')->nullable();
+            $table->string('noTlpOrtu')->nullable();
             $table->string('status')->default(1);
-            $table->string('user_id')->nullable();
             $table->timestamps();
             $table->primary('id');
         });
@@ -35,6 +37,6 @@ class CreateAdminsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('admin');
+        Schema::dropIfExists('siswa');
     }
 }

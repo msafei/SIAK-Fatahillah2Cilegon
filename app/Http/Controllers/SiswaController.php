@@ -1,12 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Kepsek;
-use App\User;
+use App\Siswa;
+use App\Kelas;
 use Illuminate\Http\Request;
 
-class KepsekController extends Controller
-{/**
+class SiswaController extends Controller
+{
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -18,8 +19,8 @@ class KepsekController extends Controller
     
     public function index()
     {
-        $kepsek = Kepsek::all();
-        return view ('kepsek.index',compact('kepsek'));
+        $siswa = Siswa::all();
+        return view ('siswa.index',compact('siswa'));
     }
 
     /**
@@ -29,7 +30,8 @@ class KepsekController extends Controller
      */
     public function create()
     {
-        return view ('kepsek.create');
+        $kelas = Kelas::all();
+        return view ('siswa.create',compact('kelas'));
     }
 
     /**
@@ -43,19 +45,9 @@ class KepsekController extends Controller
         $request->validate([
        
         ]);
-        
-        $user = new User;
-        $user->role = 'kepsek';
-        $user->name = $request->nama;
-        $user->email = $request->email;
-        $user->username = $request->id;
-        $user->password = bcrypt($request->id);
-        $user->remember_token = str_random(60);
-        $user->save();
-        
-        $request->request->add(['user_id' => $user->id]);
-        $kepsek = Kepsek::create($request->all());
-        return redirect()->route('kepsek.index')->with('success','Data telah dibuat');
+  
+        $siswa = Siswa::create($request->all());
+        return redirect()->route('siswa.index')->with('success','Data telah dibuat');
     }
 
     /**
@@ -77,8 +69,9 @@ class KepsekController extends Controller
      */
     public function edit($id)
     {
-        $kepsek = Kepsek::findOrFail($id);
-        return view('kepsek.edit',compact('kepsek'));
+        $kelas = Kelas::all();
+        $siswa = Siswa::findOrFail($id);
+        return view('siswa.edit',compact('siswa','kelas'));
     }
 
     /**
@@ -90,9 +83,9 @@ class KepsekController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $kepsek = Kepsek::find($id);
-        $kepsek->update($request->all());
-        return redirect('/kepsek');
+        $siswa = Siswa::find($id);
+        $siswa->update($request->all());
+        return redirect('/siswa');
     }
 
     /**
@@ -103,8 +96,8 @@ class KepsekController extends Controller
      */
     public function destroy($id)
     {
-        $kepsek = Kepsek::findOrFail($id);
-        $kepsek->delete();
-        return redirect('/kepsek');
+        $siswa = Siswa::findOrFail($id);
+        $siswa->delete();
+        return redirect('/siswa');
     }
 }

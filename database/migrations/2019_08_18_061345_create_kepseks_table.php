@@ -21,6 +21,7 @@ class CreateKepseksTable extends Migration
             $table->date('tanggalLahir')->nullable();
             $table->string('noTlp')->nullable();
             $table->string('email')->unique();
+            $table->string('status')->default(1);
             $table->string('user_id')->nullable();
             $table->timestamps();
             $table->primary('id');

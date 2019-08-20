@@ -121,8 +121,8 @@
 										<div class="user-box">
 											<div class="avatar-lg"><img src="{{ asset('assets/img/profile.jpg')}}" alt="image profile" class="avatar-img rounded"></div>
 											<div class="u-text">
-												<h4>Hizrian</h4>
-												<p class="text-muted">hello@example.com</p><a href="profile.html" class="btn btn-xs btn-secondary btn-sm">View Profile</a>
+												<h4>{{ Auth::user()->name }}</h4>
+												<p class="text-muted">{{ Auth::user()->role }}</p><a href="profile.html" class="btn btn-xs btn-secondary btn-sm">View Profile</a>
 											</div>
 										</div>
 									</li>
@@ -136,6 +136,9 @@
 										<div class="dropdown-divider"></div>
 										<a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">Logout</a>
+										<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    	</form>
 									</li>
 								</div>
 							</ul>
@@ -157,8 +160,8 @@
 						<div class="info">
 							<a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
 								<span>
-									Hizrian
-									<span class="user-level">Administrator</span>
+								{{ Auth::user()->name }}
+									<span class="user-level">{{ Auth::user()->role }}</span>
 									<span class="caret"></span>
 								</span>
 							</a>
@@ -181,6 +184,9 @@
                                                      document.getElementById('logout-form').submit();">
 											<span class="link-collapse">Logout</span>
 										</a>
+										<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
 									</li>
 								</ul>
 							</div>

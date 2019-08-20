@@ -15,12 +15,15 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/user', 'UserController');
 Route::resource('/admin', 'AdminController');
 Route::resource('/kepsek', 'KepsekController');
+Route::resource('/siswa', 'SiswaController');
 Route::resource('/jurusan', 'JurusanController');
 Route::resource('/kelas', 'KelasController');
 Route::resource('/jenis-pembayaran', 'JenisPembayaranController');
+Route::resource('/nominal-pembayaran', 'NominalPembayaranController');
+Route::resource('/nominal-spp', 'NominalSppController');
+
+Auth::routes();
