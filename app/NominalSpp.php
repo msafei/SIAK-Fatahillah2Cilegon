@@ -12,4 +12,19 @@ class NominalSpp extends Model
     ];
   
     public $incrementing = false;
+    
+    public function pembayaranSpp()
+    {
+        return $this->hasMany(PembayaranSpp::class);
+    }
+
+    public function kelas()
+    {
+        return $this->belongsTo(Kelas::class);
+    }
+
+    public function jenisPembayaran()
+    {
+        return $this->belongsTo(JenisPembayaran::class);
+    }
 }

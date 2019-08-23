@@ -12,4 +12,9 @@ class JenisPembayaran extends Model
     ];
   
     public $incrementing = false;
+
+    public function pembayaranSpp()
+    {
+        return $this->hasMany(PembayaranSpp::class);
+    }
 }

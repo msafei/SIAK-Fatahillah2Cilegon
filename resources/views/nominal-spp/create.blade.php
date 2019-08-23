@@ -49,9 +49,9 @@ active
             </div>
 
 						<div class="form-group">
-        		<label for="single">Jenis Pembayaran</label>
-        		<select id="single" name="jenis_pembayaran_id" class="form-control select2" ui-jp="select2" ui-options="{theme: 'bootstrap'}" required>
-						<option value="">Pilih Jenis Pembayaran</option>
+        		<label>Jenis Pembayaran</label>
+        		<select id="jenisPembayaran" name="jenis_pembayaran_id" class="form-control js-example-basic-single" required>
+						<option value=""></option>
 						@foreach($jenisPembayaran as $jenisPembayaran)
 								<option value="{{$jenisPembayaran->id}}">{{$jenisPembayaran->nama}}</option>
 						@endforeach
@@ -59,9 +59,9 @@ active
       			</div>
 
 						<div class="form-group">
-        		<label for="single">Kelas</label>
-        		<select id="single" name="kelas_id" class="form-control select2" ui-jp="select2" ui-options="{theme: 'bootstrap'}" required>
-						<option value="">Pilih Kelas</option>
+        		<label >Kelas</label>
+        		<select id="kelas" name="kelas" class="form-control js-example-basic-single" required>
+						<option value=""></option>
 						@foreach($kelas as $kelas)
 								<option value="{{$kelas->id}}">{{$kelas->nama}}</option>
 						@endforeach
@@ -90,4 +90,25 @@ active
 </div>
 </div>
 </div>
+@endsection
+@section('js')
+<script type="text/javascript">
+$(document).ready(function() {
+    $('.js-example-basic-single').select2();
+});
+</script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$('#jenisPembayaran').select2({
+	placeholder: 'Pilih Jenis Pembayaran',
+	});
+});
+</script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$('#kelas').select2({
+	placeholder: 'Pilih Kelas',
+	});
+});
+</script>
 @endsection

@@ -1,7 +1,8 @@
 <?php
 
 namespace App;
-
+use App\Kelas;
+use App\Jurusan;
 use Illuminate\Database\Eloquent\Model;
 
 class Siswa extends Model
@@ -12,4 +13,18 @@ class Siswa extends Model
     ];
   
     public $incrementing = false;
+
+    public function kelas()
+    {
+        return $this->belongsTo(Kelas::class);
+    }
+    public function jurusan()
+    {
+        return $this->belongsTo(Jurusan::class);
+    }
+    public function pembayaranSpp()
+    {
+        return $this->belongsTo(PembayaranSpp::class);
+    }
+
 }

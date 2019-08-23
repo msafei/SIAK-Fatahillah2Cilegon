@@ -304,9 +304,9 @@
 	<!-- Sweet Alert -->
   <script src="{{ asset('assets/js/plugin/sweetalert/sweetalert.min.js')}}"></script>
 
-  @yield('js')
-
 	<!-- Atlantis JS -->
 	<script src="{{ asset('assets/js/atlantis.min.js')}}"></script>
+
+	@yield('js')
 </body>
 </html>

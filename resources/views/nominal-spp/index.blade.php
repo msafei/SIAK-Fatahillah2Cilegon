@@ -62,7 +62,7 @@ active
                                         <tr>
                                             <td>{{$nominalSpp ->id}}</td>
                                             <td>{{$nominalSpp ->jenis_pembayaran_id}}</td>
-                                            <td>{{$nominalSpp ->kelas_id}}</td>
+                                            <td>{{$nominalSpp->kelas->nama}}</td>
                                             <td>{{$nominalSpp ->nominal}}</td>
                                             <td>
                                                             <form action="{{route('nominal-spp.destroy',$nominalSpp->id)}}" method="post">

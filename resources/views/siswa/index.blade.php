@@ -48,7 +48,6 @@ active
                                     <table id="responsive-datatable" class="table dt-responsive nowrap display table table-striped table-hover" cellspacing="0" width="100%">
                                         <thead>
                                         <tr class="text-center">
-                                            <th>NIP</th>
                                             <th>Nama</th>
                                             <th>Jenis Kelamin</th>
                                             <th>Tanggal Lahir</th>
@@ -62,11 +61,10 @@ active
                                         <tbody>
                                             @foreach($siswa as $siswa)
                                         <tr>
-                                            <td>{{$siswa->id}}</td>
-                                            <td>{{$siswa->nama}}</td>
+                                            <td><b>{{$siswa->nama}}</b><br><h6>{{$siswa->id}}</h6></td>
                                             <td>{{$siswa->jk}}</td>
                                             <td>{{$siswa->tanggalLahir}}</td>
-                                            <td>{{$siswa->kelas_id}}</td>
+                                            <td>{{$siswa->kelas->nama}}</td>
                                             <td>{{$siswa->alamatSiswa}}</td>
                                             <td>
                                                             <form action="{{route('siswa.destroy',$siswa->id)}}" method="post">

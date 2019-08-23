@@ -18,7 +18,7 @@ class CreateSiswasTable extends Migration
             $table->string('nama');
             $table->string('jk')->nullable();
             $table->date('tanggalLahir')->nullable();
-            $table->string('kelas_id')->nullable();
+            $table->integer('kelas_id')->unsigned();
             $table->string('alamatSiswa')->nullable();
             $table->string('namaIbu')->nullable();
             $table->string('namaAyah')->nullable();
@@ -26,6 +26,7 @@ class CreateSiswasTable extends Migration
             $table->string('noTlpOrtu')->nullable();
             $table->string('status')->default(1);
             $table->timestamps();
+            $table->foreign('kelas_id')->references('id')->on('kelas')->onDelete('cascade');
             $table->primary('id');
         });
     }
