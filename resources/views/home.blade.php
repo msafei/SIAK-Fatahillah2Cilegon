@@ -1,105 +1,53 @@
-@extends('layouts.dashboard')
-@section('active-dashboard')
+@extends('layouts.siak')
+@section('db-active')
 active
 @endsection
-@section('bg-nav')
-<nav class="navbar navbar-header navbar-expand-lg" data-background-color="blue2">
+@section('judul')
+Dashboard
+@endsection
+@section('breadcrumb')
+<li class="breadcrumb-item active">Welcome to SIAK Fatahillah 2 Cilegon</li>
+<!-- <li class="breadcrumb-item"><a href="#">Highdmin</a></li>
+<li class="breadcrumb-item"><a href="#">Layouts</a></li>
+<li class="breadcrumb-item active">Dark Menu</li> -->
 @endsection
 @section('content')
-<div class="panel-header bg-primary-gradient" >
-					<div class="page-inner py-5">
-						<div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
-							<div>
-								<h2 class="text-white pb-2 fw-bold">Dashboard</h2>
-								<h5 class="text-white op-7 mb-2">Selamat Datang pada Sistem Informasi Administrasi Keuangan</h5>
-							</div>
-						</div>
-					</div>
-				</div>
+<div class="row">
+                            <div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
+                                <div class="card-box tilebox-one">
+                                    <i class="icon-layers float-right text-muted"></i>
+                                    <h6 class="text-muted text-uppercase mt-0">Orders</h6>
+                                    <h2 class="m-b-20" data-plugin="counterup">1,587</h2>
+                                    <span class="badge badge-custom"> +11% </span> <span class="text-muted">From previous period</span>
+                                </div>
+                            </div>
 
-				<!-- Widget -->
-				<div class="page-inner mt--5">
-					<div class="row">
-						<div class="col-sm-6 col-md-3">
-							<div class="card card-stats card-round">
-								<div class="card-body ">
-									<div class="row align-items-center">
-										<div class="col-icon">
-											<div class="icon-big text-center icon-primary bubble-shadow-small">
-												<i class="flaticon-users"></i>
-											</div>
-										</div>
-										<div class="col col-stats ml-3 ml-sm-0">
-											<div class="numbers">
-												<p class="card-category">Visitors</p>
-												<h4 class="card-title">1,294</h4>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-6 col-md-3">
-							<div class="card card-stats card-round">
-								<div class="card-body">
-									<div class="row align-items-center">
-										<div class="col-icon">
-											<div class="icon-big text-center icon-info bubble-shadow-small">
-												<i class="flaticon-interface-6"></i>
-											</div>
-										</div>
-										<div class="col col-stats ml-3 ml-sm-0">
-											<div class="numbers">
-												<p class="card-category">Subscribers</p>
-												<h4 class="card-title">1303</h4>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-6 col-md-3">
-							<div class="card card-stats card-round">
-								<div class="card-body">
-									<div class="row align-items-center">
-										<div class="col-icon">
-											<div class="icon-big text-center icon-success bubble-shadow-small">
-												<i class="flaticon-graph"></i>
-											</div>
-										</div>
-										<div class="col col-stats ml-3 ml-sm-0">
-											<div class="numbers">
-												<p class="card-category">Sales</p>
-												<h4 class="card-title">$ 1,345</h4>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-6 col-md-3">
-							<div class="card card-stats card-round">
-								<div class="card-body">
-									<div class="row align-items-center">
-										<div class="col-icon">
-											<div class="icon-big text-center icon-secondary bubble-shadow-small">
-												<i class="flaticon-success"></i>
-											</div>
-										</div>
-										<div class="col col-stats ml-3 ml-sm-0">
-											<div class="numbers">
-												<p class="card-category">Order</p>
-												<h4 class="card-title">576</h4>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- // -->
-					
+                            <div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
+                                <div class="card-box tilebox-one">
+                                    <i class="icon-paypal float-right text-muted"></i>
+                                    <h6 class="text-muted text-uppercase mt-0">Revenue</h6>
+                                    <h2 class="m-b-20">$<span data-plugin="counterup">46,782</span></h2>
+                                    <span class="badge badge-danger"> -29% </span> <span class="text-muted">From previous period</span>
+                                </div>
+                            </div>
 
-                    </div>
-					</div>
+                            <div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
+                                <div class="card-box tilebox-one">
+                                    <i class="icon-chart float-right text-muted"></i>
+                                    <h6 class="text-muted text-uppercase mt-0">Average Price</h6>
+                                    <h2 class="m-b-20">$<span data-plugin="counterup">15.9</span></h2>
+                                    <span class="badge badge-custom"> 0% </span> <span class="text-muted">From previous period</span>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
+                                <div class="card-box tilebox-one">
+                                    <i class="icon-rocket float-right text-muted"></i>
+                                    <h6 class="text-muted text-uppercase mt-0">Product Sold</h6>
+                                    <h2 class="m-b-20" data-plugin="counterup">1,890</h2>
+                                    <span class="badge badge-custom"> +89% </span> <span class="text-muted">Last year</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end row -->
 @endsection

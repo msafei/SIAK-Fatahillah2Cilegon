@@ -119,7 +119,7 @@ active
                                         </div>
                                         </div>
 
-                                        <div class="col-md-7">
+                                        <div class="col-md-6">
                                         <div class="form-group">
                                         <label>Pembayaran</label>
                                         <select name="nominalSpp_id" class=" form-control select2" required>
@@ -131,10 +131,17 @@ active
                                         </div>
                                         </div>
 
-                                        <div class="col-md-5">
+                                        <div class="col-md-3">
                                         <div class="form-group">
                                         <label><h6>Nominal</h6></label>
                                         <input id="nominal" name="nominal" type="text" class="form-control" placeholder="Nominal" readonly>                        
+                                        </div>
+                                        </div>
+
+                                        <div class="col-md-3">
+                                        <div class="form-group">
+                                        <label><h6>Potongan :</h6></label>
+                                        <input id="potongan" name="potongan" type="text" class="form-control" value="0" >                        
                                         </div>
                                         </div>
                                         
@@ -215,26 +222,20 @@ active
 
 
 
-                                        <div class="col-md-2">
+                                        <div class="col-md-4">
                                         <div class="form-group">
                                         <label><h6>Total Bulan :</h6></label>
                                         <input id="totalBulan" name="totalBulan" type="text" class="form-control" readonly>                        
                                         </div>
                                         </div>
 
-                                        <div class="col-md-5">
+                                        <div class="col-md-8">
                                         <div class="form-group">
                                         <label><h6>Total :</h6></label>
                                         <input id="total" name="total" type="text" class="form-control" placeholder="Total" readonly>                        
                                         </div>
                                         </div>
 
-                                        <div class="col-md-5">
-                                        <div class="form-group">
-                                        <label><h6>Potongan :</h6></label>
-                                        <input id="potongan" name="potongan" type="text" class="form-control" value="0" >                        
-                                        </div>
-                                        </div>
 
                                         <br>
                                         <div class="modal-footer">
