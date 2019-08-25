@@ -9,7 +9,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
         <!-- App favicon -->
-        <link rel="shortcut icon" href="assets/images/favicon.ico">
+        <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico')}}">
 
         <!-- App css -->
         @yield('css')
@@ -35,9 +35,9 @@
 
                     <!-- LOGO -->
                     <div class="topbar-left">
-                        <a href="index.html" class="logo">
+                        <a href="/home" class="logo">
                             <span>
-                                <img src="{{ asset('assets/images/logo_light.png')}}" alt="" height="22">
+                                <img src="{{ asset('assets/images/logo_light.png')}}" alt="" height="35">
                             </span>
                             <i>
                                 <img src="{{ asset('assets/images/logo_sm.png')}}" alt="" height="28">
@@ -159,9 +159,13 @@
                                     </a>
 
                                     <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
                                         <i class="fi-power"></i> <span>Logout</span>
                                     </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
 
                                 </div>
                             </li>
@@ -230,19 +234,11 @@
         <script src="{{ asset('assets/js/jquery.slimscroll.js')}}"></script>
 
         <!-- Flot chart -->
-        <script src="{{ asset('plugins/flot-chart/jquery.flot.min.js')}}"></script>
-        <script src="{{ asset('plugins/flot-chart/jquery.flot.time.js')}}"></script>
-        <script src="{{ asset('plugins/flot-chart/jquery.flot.tooltip.min.js')}}"></script>
-        <script src="{{ asset('plugins/flot-chart/jquery.flot.resize.js')}}"></script>
-        <script src="{{ asset('plugins/flot-chart/jquery.flot.pie.js')}}"></script>
-        <script src="{{ asset('plugins/flot-chart/jquery.flot.crosshair.js')}}"></script>
-        <script src="{{ asset('plugins/flot-chart/curvedLines.js')}}"></script>
-        <script src="{{ asset('plugins/flot-chart/jquery.flot.axislabels.js')}}"></script>
 
         <!-- KNOB JS -->
-        <!--[if IE]>
+        [if IE]>
         <script type="text/javascript" src="{{ asset('plugins/jquery-knob/excanvas.js')}}"></script>
-        <![endif]-->
+        <![endif]
         <script src="{{ asset('plugins/jquery-knob/jquery.knob.js')}}"></script>
 
         <!-- Dashboard Init -->

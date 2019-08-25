@@ -15,10 +15,8 @@ class CreateNominalSppsTable extends Migration
     {
         Schema::create('nominal_spp', function (Blueprint $table) {
             $table->string('id');
-            $table->string('jenis_pembayaran_id');
             $table->integer('kelas_id');
             $table->string('nominal');
-            $table->string('status')->default(1);
             $table->timestamps();
             $table->primary('id');
         });

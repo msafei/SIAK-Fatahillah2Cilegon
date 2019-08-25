@@ -1,10 +1,4 @@
-@extends('layouts.dashboard')
-@section('show-master')
-show
-@endsection
-@section('active-kepsek')
-active
-@endsection
+@extends('layouts.siak')
 @section('content')
 <div class="page-inner">
 					<div class="page-header">

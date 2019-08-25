@@ -1,25 +1,9 @@
-@extends('layouts.dashboard')
+@extends('layouts.siak')
 @section('css')
 <link href="{{ asset('plugins/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('plugins/datatables/buttons.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
         <!-- Responsive datatable examples -->
         <link href="{{ asset('plugins/datatables/responsive.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
-@endsection
-@section('show-master')
-show
-@endsection
-@section('active-user')
-active
-@endsection
-@section('title')
-
-              <div class="nav-link">
-              
-           
-
-              
-              <!-- / -->
-            </div>
 @endsection
 @section('content')
 <div class="page-inner">

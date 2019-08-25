@@ -1,15 +1,9 @@
-@extends('layouts.dashboard')
+@extends('layouts.siak')
 @section('css')
 <link href="{{ asset('plugins/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('plugins/datatables/buttons.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
         <!-- Responsive datatable examples -->
         <link href="{{ asset('plugins/datatables/responsive.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
-@endsection
-@section('show-setting')
-show
-@endsection
-@section('active-nominalSpp')
-active
 @endsection
 @section('content')
 <div class="page-inner">
@@ -49,9 +43,9 @@ active
                                         <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Jenis SPP</th>
                                             <th>Kelas</th>
                                             <th>Nominal SPP</th>
+                                            <th>Nominal x 12</th>
                                             <th style="width: 10%">Aksi</th>
                                         </tr>
                                         </thead>
@@ -61,9 +55,9 @@ active
                                             @foreach($nominalSpp as $nominalSpp)
                                         <tr>
                                             <td>{{$nominalSpp ->id}}</td>
-                                            <td>{{$nominalSpp ->jenis_pembayaran_id}}</td>
                                             <td>{{$nominalSpp->kelas->nama}}</td>
                                             <td>{{$nominalSpp ->nominal}}</td>
+                                            <td>{{$nominalSpp ->t_nominal}}</td>
                                             <td>
                                                             <form action="{{route('nominal-spp.destroy',$nominalSpp->id)}}" method="post">
                                                             @csrf

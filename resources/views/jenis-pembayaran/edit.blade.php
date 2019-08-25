@@ -1,10 +1,4 @@
-@extends('layouts.dashboard')
-@section('show-setting')
-show
-@endsection
-@section('active-jenisPembayaran')
-active
-@endsection
+@extends('layouts.siak')
 @section('content')
 <div class="page-inner">
 					<div class="page-header">

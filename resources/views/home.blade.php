@@ -15,37 +15,37 @@ Dashboard
 <div class="row">
                             <div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
                                 <div class="card-box tilebox-one">
-                                    <i class="icon-layers float-right text-muted"></i>
-                                    <h6 class="text-muted text-uppercase mt-0">Orders</h6>
-                                    <h2 class="m-b-20" data-plugin="counterup">1,587</h2>
-                                    <span class="badge badge-custom"> +11% </span> <span class="text-muted">From previous period</span>
+                                    <i class="icon-people float-right text-muted"></i>
+                                    <h6 class="text-muted text-uppercase mt-0">Admin</h6>
+                                    <h2 class="m-b-20" data-plugin="counterup">{{$admin->count()}}</h2>
+                                    <span class="text-muted">Admin masih aktif</span>
                                 </div>
                             </div>
 
                             <div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
                                 <div class="card-box tilebox-one">
-                                    <i class="icon-paypal float-right text-muted"></i>
-                                    <h6 class="text-muted text-uppercase mt-0">Revenue</h6>
-                                    <h2 class="m-b-20">$<span data-plugin="counterup">46,782</span></h2>
-                                    <span class="badge badge-danger"> -29% </span> <span class="text-muted">From previous period</span>
+                                    <i class=" icon-graduation float-right text-muted"></i>
+                                    <h6 class="text-muted text-uppercase mt-0">Siswa</h6>
+                                    <h2 class="m-b-20"><span data-plugin="counterup">{{$siswa->count()}}</span></h2>
+                                    <span class="text-muted">Siswa masih aktif</span>
                                 </div>
                             </div>
 
                             <div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
                                 <div class="card-box tilebox-one">
-                                    <i class="icon-chart float-right text-muted"></i>
-                                    <h6 class="text-muted text-uppercase mt-0">Average Price</h6>
-                                    <h2 class="m-b-20">$<span data-plugin="counterup">15.9</span></h2>
-                                    <span class="badge badge-custom"> 0% </span> <span class="text-muted">From previous period</span>
+                                    <i class="icon-docs float-right text-muted"></i>
+                                    <h6 class="text-muted text-uppercase mt-0">Tunggakan SPP</h6>
+                                    <h2 class="m-b-20"><span data-plugin="counterup">{{$tunggakanSpp->count()}}</span></h2>
+                                    <span class="text-muted">Siswa masih menunggak</span>
                                 </div>
                             </div>
 
                             <div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
                                 <div class="card-box tilebox-one">
-                                    <i class="icon-rocket float-right text-muted"></i>
-                                    <h6 class="text-muted text-uppercase mt-0">Product Sold</h6>
-                                    <h2 class="m-b-20" data-plugin="counterup">1,890</h2>
-                                    <span class="badge badge-custom"> +89% </span> <span class="text-muted">Last year</span>
+                                    <i class="icon-docs float-right text-muted"></i>
+                                    <h6 class="text-muted text-uppercase mt-0">Tunggakan Lain</h6>
+                                    <h2 class="m-b-20" data-plugin="counterup">5</h2>
+                                    <span class="text-muted">Siswa masih menunggak</span>
                                 </div>
                             </div>
                         </div>

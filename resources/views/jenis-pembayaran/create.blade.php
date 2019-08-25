@@ -1,10 +1,4 @@
-@extends('layouts.dashboard')
-@section('show-setting')
-show
-@endsection
-@section('active-jenisPembayaran')
-active
-@endsection
+@extends('layouts.siak')
 @section('content')
 <div class="page-inner">
 					<div class="page-header">
@@ -47,15 +41,6 @@ active
               <label>ID</label>
               <input name="id" type="text" class="form-control" placeholder="ID Jenis Pembayaran" required>
             </div>
-
-
-            <div class="form-group">
-        <label for="single">Kode Pembayaran</label>
-        <select id="single" name="kode" class="form-control select2" ui-jp="select2" ui-options="{theme: 'bootstrap'}" required>
-            <option value="spp">SPP</option>
-            <option value="non spp">Lain-lain</option>
-        </select> 
-      </div>
 
             <div class="form-group">
               <label>Jenis Pembayaran</label>

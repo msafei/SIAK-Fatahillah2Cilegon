@@ -1,10 +1,4 @@
-@extends('layouts.dashboard')
-@section('show-setting')
-show
-@endsection
-@section('active-nominalSpp')
-active
-@endsection
+@extends('layouts.siak')
 @section('content')
 <div class="page-inner">
 					<div class="page-header">
@@ -41,24 +35,8 @@ active
                     <form method="post" action="{{route('nominal-spp.store')}}" ui-jp="parsley">
         <div class="box">
           <div class="box-body">
-
-            <div class="form-group">
-              @csrf
-              <label>ID</label>
-              <input name="id" type="text" class="form-control" placeholder="ID Nominal SPP" required>                        
-            </div>
-
 						<div class="form-group">
-        		<label>Jenis Pembayaran</label>
-        		<select id="jenisPembayaran" name="jenis_pembayaran_id" class="form-control js-example-basic-single" required>
-						<option value=""></option>
-						@foreach($jenisPembayaran as $jenisPembayaran)
-								<option value="{{$jenisPembayaran->id}}">{{$jenisPembayaran->nama}}</option>
-						@endforeach
-        		</select>
-      			</div>
-
-						<div class="form-group">
+						@csrf
         		<label >Kelas</label>
         		<select id="kelas" name="kelas" class="form-control js-example-basic-single" required>
 						<option value=""></option>

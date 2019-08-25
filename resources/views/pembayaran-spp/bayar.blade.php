@@ -136,21 +136,21 @@ Pembayaran SPP
                                         <div class="col-md-3">
                                         <div class="form-group">
                                         <label><h6>ID Kelas</h6></label>
-                                        <input id="kelas_id" name="kelas_id" type="text" class="form-control"  readonly>                        
+                                        <input id="kelas_id" name="kelas_id" type="text" class="form-control"  placeholder="Kelas_id" readonly>                        
                                         </div>
                                         </div>
 
                                         <div class="col-md-3">
                                         <div class="form-group">
                                         <label><h6>Kelas</h6></label>
-                                        <input id="kelas" name="kelas" type="text" class="form-control"  placeholder="Kelas" readonly>                        
+                                        <input id="kelas" name="kelas" type="text" class="form-control"  placeholder="Kelas_id" readonly>                        
                                         </div>
                                         </div>
 
                                         <div class="col-md-3">
                                         <div class="form-group">
                                         <label><h6>Nominal ID</h6></label>
-                                        <input id="nominalSpp_id" name="nominalSpp_id" type="text" class="form-control" readonly>                        
+                                        <input id="nominalSpp_id" name="nominalSpp_id" type="text" class="form-control" placeholder="Nominal" readonly>                        
                                         </div>
                                         </div>
 

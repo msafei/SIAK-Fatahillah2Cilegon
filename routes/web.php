@@ -29,6 +29,7 @@ Route::resource('/nominal-spp', 'NominalSppController');
 Route::get('/pembayaran-spp', 'PembayaranSppController@index');
 Route::post('/pembayaran-spp/create', 'PembayaranSppController@create');
 Route::get('/pembayaran-spp/{id}/destroy', 'PembayaranSppController@destroy');
+Route::get('/pembayaran-spp/cariSiswaKelas/{id}','PembayaranSppController@cariSiswaKelas');
 Route::get('/pembayaran-spp/cariKelas/{id}','PembayaranSppController@cariKelas');
 Route::get('/pembayaran-spp/cariNominal/{id}','PembayaranSppController@cariNominal');
 Auth::routes();

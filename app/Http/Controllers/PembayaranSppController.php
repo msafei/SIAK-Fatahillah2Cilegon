@@ -114,11 +114,18 @@ class PembayaranSppController extends Controller
         return redirect('/pembayaran-spp');
     }
 
-    public function cariKelas($id)
+    public function cariSiswaKelas($id)
     {
         $siswa = Siswa::findOrFail($id);
         return json_encode($siswa);
     }
+
+    public function cariKelas($id)
+    {
+        $kelas = Kelas::findOrFail($id);
+        return json_encode($kelas);
+    }
+
 
     public function cariNominal($id)
     {

@@ -47,8 +47,17 @@ class NominalSppController extends Controller
         $request->validate([
        
         ]);
-        
-        $nominalSpp = NominalSpp::create($request->all());
+
+        $kode = new NominalSpp;
+        $a ='SPP';
+        $b =$request->kelas;
+        $kode->id =$a.$b;
+        $tnominal=(($request->nominal)*12);
+        $kode->kelas_id = $request->kelas;
+        $kode->nominal = $request->nominal;
+        $kode->t_nominal = $tnominal;
+        $kode->save();
+
         return redirect()->route('nominal-spp.index')->with('success','Data telah dibuat');
     }
 

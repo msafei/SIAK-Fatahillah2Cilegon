@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateNominalPembayaransTable extends Migration
+class CreateAkunsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,9 @@ class CreateNominalPembayaransTable extends Migration
      */
     public function up()
     {
-        Schema::create('nominal_pembayaran', function (Blueprint $table) {
-            $table->string('id');
-            $table->string('jenis_pembayaran_id');
-            $table->string('kelas_id');
-            $table->string('nominal');
+        Schema::create('akuns', function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->timestamps();
-            $table->primary('id');
         });
     }
 
@@ -30,6 +26,6 @@ class CreateNominalPembayaransTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('nominal_pembayaran');
+        Schema::dropIfExists('akuns');
     }
 }
