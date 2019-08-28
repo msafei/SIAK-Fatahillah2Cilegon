@@ -39,7 +39,8 @@ jQuery(document).ready(function () {
     // Date Picker
     jQuery('#datepicker').datepicker();
     jQuery('#datepicker-autoclose').datepicker({
-        autoclose: true,
+        format:'yyyy/dd/mm',
+        defaultDate: new Date(),
         todayHighlight: true
     });
     jQuery('#datepicker-inline').datepicker();

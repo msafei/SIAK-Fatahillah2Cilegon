@@ -13,8 +13,9 @@ class CreateAkunsTable extends Migration
      */
     public function up()
     {
-        Schema::create('akuns', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        Schema::create('akun', function (Blueprint $table) {
+            $table->string('id');
+            $table->string('nama');
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ class CreateAkunsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('akuns');
+        Schema::dropIfExists('akun');
     }
 }

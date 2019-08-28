@@ -12,7 +12,7 @@
 Pembayaran SPP
 @endsection
 @section('breadcrumb')
-<li class="breadcrumb-item active">Menambah Pembayaran SPP</li>
+<li class="breadcrumb-item active">Menambah Pembayaran Lain</li>
 @endsection
 @section('content')
 <div class="row">
@@ -39,12 +39,12 @@ Pembayaran SPP
 
 
                                         <tbody>
-                                            @foreach($pembayaranSpp as $pembayaranSpp)
+                                            @foreach($tunggakanLain as $tunggakanLain)
                                         <tr>
-                                            <td><b>{{$pembayaranSpp->siswa->nama}}</b><br>{{$pembayaranSpp->siswa->id}}</td>
-                                            <td>{{$pembayaranSpp->kelas->nama}}</td>
+                                            <td><b></b><br></td>
+                                            <td></td>
                                             <td>
-                                            @if(($pembayaranSpp->totalBulan)==12)
+                                            @if(($tunggakanLain->status)=="Lunas")
                                             <span class="badge  badge-success" style="padding-top:5px; padding-bottom:5px; padding-right:30px; padding-left:30px;">Lunas</span>
                                             @else
                                             <span class="badge  badge-warning" style="padding-top:5px; padding-bottom:5px; padding-right:13px; padding-left:13px;">Belum Lunas</span>
@@ -53,11 +53,11 @@ Pembayaran SPP
                                             
                                             <td>
                                           
-                                            @if(($pembayaranSpp->totalBulan)==12)
+                                            @if(($tunggakanLain->status)=="Lunas")
                                             
                                             @else
                                             <center>
-                                            <a href="/pembayaran-spp/{{$pembayaranSpp->id}}/bayar">
+                                            <a href="/pembayaran-lain/{{$tunggakanLain->id}}/bayar">
                                             <button type="submit" class="btn btn-purple waves-effect waves-light" data-toggle="tooltip" data-original-title="Bayar"> <i class="fa fa-money m-l-5"></i><span> Bayar</span></button>
                                             </a>
                                             </center>
@@ -93,13 +93,13 @@ Pembayaran SPP
                                             <th style="width: 6%"></th>
                                         </tr>
                                         </thead>
-                                        @foreach($tunggakanSpp as $tunggakanSpp)
+                                        @foreach($pembayaranLain as $pembayaranLain)
                                         <tr>
-                                            <td>{{$tunggakanSpp->id}}</td>
-                                            <td><b>{{$tunggakanSpp->siswa->nama}}</b><br>{{$tunggakanSpp->siswa->id}}</td>
-                                            <td>{{$tunggakanSpp->bulan}}</td>
+                                            <td></td>
+                                            <td><b></b><br></td>
+                                            <td></td>
                                             <td>
-                                            @if(($tunggakanSpp->sisaBulan)==0)
+                                            @if(($tunggakanSpp->status)=="Lunas")
                                             <span class="badge  badge-success" style="padding-top:5px; padding-bottom:5px; padding-right:30px; padding-left:30px;">Lunas</span>
                                             @else
                                             <span class="badge  badge-warning" style="padding-top:5px; padding-bottom:5px; padding-right:13px; padding-left:13px;">Belum Lunas</span>

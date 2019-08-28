@@ -23,13 +23,20 @@ Route::resource('/siswa', 'SiswaController');
 Route::resource('/jurusan', 'JurusanController');
 Route::resource('/kelas', 'KelasController');
 Route::resource('/jenis-pembayaran', 'JenisPembayaranController');
-Route::resource('/nominal-pembayaran', 'NominalPembayaranController');
+
+Route::resource('/nominal-lain', 'NominalLainController');
 Route::resource('/nominal-spp', 'NominalSppController');
 
 Route::get('/pembayaran-spp', 'PembayaranSppController@index');
+Route::post('/pembayaran-spp/{id}/update', 'PembayaranSppController@update');
 Route::post('/pembayaran-spp/create', 'PembayaranSppController@create');
+Route::get('/pembayaran-spp/{id}/bayar', 'PembayaranSppController@bayar');
 Route::get('/pembayaran-spp/{id}/destroy', 'PembayaranSppController@destroy');
 Route::get('/pembayaran-spp/cariSiswaKelas/{id}','PembayaranSppController@cariSiswaKelas');
 Route::get('/pembayaran-spp/cariKelas/{id}','PembayaranSppController@cariKelas');
 Route::get('/pembayaran-spp/cariNominal/{id}','PembayaranSppController@cariNominal');
+Route::get('/pembayaran-spp/{id}/print', 'PembayaranSppController@print');
+
+
+Route::get('/pembayaran-lain', 'PembayaranLainController@index');
 Auth::routes();

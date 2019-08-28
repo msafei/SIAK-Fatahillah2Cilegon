@@ -1,26 +1,26 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\NominalPembayaran;
-use App\JenisPembayaran;
+
 use Illuminate\Http\Request;
 
-class NominalPembayaranController extends Controller
+class PembayaranLain extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function __construct()
     {
         $this->middleware('auth');
     }
-    
+
     public function index()
     {
-        $nominalPembayaran = NominalPembayaran::all();
-        return view ('nominal-pembayaran.index',compact('nominalPembayaran'));
+        $date = date('Y-m-d');
+        $tunggakanSpp = PembayaranSpp::all()->where('tanggal',$date);
+        $jenisPembayaran = JenisPembayaran::all();
+        $kelas = Kelas::all();
+        $nominalSpp = NominalSpp::all();
+        $siswa = Siswa::all();
+        $pembayaranSpp = PembayaranSpp::all();
+        return view ('pembayaran-spp.index',compact('pembayaranSpp','siswa','kelas','nominalSpp','jenisPembayaran','tunggakanSpp'));
     }
 
     /**
@@ -30,8 +30,7 @@ class NominalPembayaranController extends Controller
      */
     public function create()
     {
-        $jenisPembayaran = JenisPembayaran::where('kode','=',"non spp")->get();
-        return view ('nominal-pembayaran.create',compact('jenisPembayaran'));
+        //
     }
 
     /**
@@ -42,12 +41,7 @@ class NominalPembayaranController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-       
-        ]);
-  
-        $nominalPembayaran = NominalPembayaran::create($request->all());
-        return redirect()->route('nominal-pembayaran.index')->with('success','Data telah dibuat');
+        //
     }
 
     /**
@@ -58,7 +52,7 @@ class NominalPembayaranController extends Controller
      */
     public function show($id)
     {
-
+        //
     }
 
     /**
@@ -69,9 +63,7 @@ class NominalPembayaranController extends Controller
      */
     public function edit($id)
     {
-        $jenisPembayaran = JenisPembayaran::where('kode','=',"non spp")->get();
-        $nominalPembayaran = NominalPembayaran::findOrFail($id);
-        return view('nominal-pembayaran.edit',compact('nominalPembayaran','jenisPembayaran'));
+        //
     }
 
     /**
@@ -83,9 +75,7 @@ class NominalPembayaranController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $nominalPembayaran = NominalPembayaran::find($id);
-        $nominalPembayaran->update($request->all());
-        return redirect('/nominal-pembayaran');
+        //
     }
 
     /**
@@ -96,8 +86,6 @@ class NominalPembayaranController extends Controller
      */
     public function destroy($id)
     {
-        $nominalPembayaran = NominalPembayaran::findOrFail($id);
-        $nominalPembayaran->delete();
-        return redirect('/nominal-pembayaran');
+        //
     }
 }

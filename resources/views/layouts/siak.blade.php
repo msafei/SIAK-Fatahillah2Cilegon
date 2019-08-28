@@ -240,7 +240,7 @@
         <script type="text/javascript" src="{{ asset('plugins/jquery-knob/excanvas.js')}}"></script>
         <![endif]
         <script src="{{ asset('plugins/jquery-knob/jquery.knob.js')}}"></script>
-
+        @yield('js')
         <!-- Dashboard Init -->
         <script src="{{ asset('assets/pages/jquery.dashboard.init.js')}}"></script>
 
@@ -248,7 +248,7 @@
         <script src="{{ asset('assets/js/jquery.core.js')}}"></script>
         <script src="{{ asset('assets/js/jquery.app.js')}}"></script>
 
-        @yield('js')
+        
 
     </body>
 </html>

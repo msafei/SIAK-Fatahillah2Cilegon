@@ -1,4 +1,4 @@
-@@extends('layouts.siak')
+@extends('layouts.siak')
 @section('content')
 <div class="page-inner">
 					<div class="page-header">
@@ -32,7 +32,7 @@
 									<div class="row">
 										<div class="col-md-12">
                                     
-                    <form method="post" action="{{route('nominal-pembayaran.update',$nominalPembayaran->id)}}" ui-jp="parsley">
+                    <form method="post" action="{{route('nominal-spp.update',$nominalSpp->id)}}" ui-jp="parsley">
         <div class="box">
           <div class="box-body">
 
@@ -40,7 +40,7 @@
               @csrf
               @method('PATCH')
               <label>ID Nominal Pembayaran</label>
-              <input name="id" type="text" class="form-control" placeholder="ID Nominal Pembayaran" value="{{$nominalPembayaran->id}}" disabled>                        
+              <input name="id" type="text" class="form-control" placeholder="ID Nominal Pembayaran" value="{{$nominalSpp->id}}" disabled>                        
             </div>
 
 						<div class="form-group">
@@ -48,7 +48,7 @@
         		<select id="single" name="jenis_pembayaran_id" class="form-control select2" ui-jp="select2"  ui-options="{theme: 'bootstrap'}">
 						@foreach($jenisPembayaran as $key => $jenisPembayaran)
 								<option value="{{$jenisPembayaran->id}}"
-								@if ($jenisPembayaran->id == $nominalPembayaran->jenis_pembayaran_id)
+								@if ($jenisPembayaran->id == $nominalSpp->jenis_pembayaran_id)
 								selected
 								@endif
 								>{{$jenisPembayaran->nama}}</option>
@@ -58,7 +58,7 @@
 
 						<div class="form-group">
               <label>Nominal Pembayaran</label>
-              <input name="nominal" type="text" class="form-control" placeholder="Nominal Pembayaran" value="{{$nominalPembayaran->nominal}}">                        
+              <input name="nominal" type="text" class="form-control" placeholder="Nominal Pembayaran" value="{{$nominalSpp->nominal}}">                        
             </div>
 
           </div>

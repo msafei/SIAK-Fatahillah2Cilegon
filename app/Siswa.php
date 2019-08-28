@@ -27,4 +27,9 @@ class Siswa extends Model
         return $this->belongsTo(PembayaranSpp::class);
     }
 
+    public function tunggakanSpp()
+    {
+        return $this->belongsTo(PembayaranSpp::class);
+    }
+
 }

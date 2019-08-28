@@ -14,18 +14,14 @@ class CreatePembayaranSppsTable extends Migration
     public function up()
     {
         Schema::create('pembayaran_spp', function (Blueprint $table) {
-            $table->string('id');
-            $table->date('tanggal');
+            $table->bigIncrements('id');
             $table->string('siswa_id');
             $table->string('kelas_id');
             $table->string('nominalSpp_id');
+            $table->integer('nominal');
             $table->string('bulan');
-            $table->integer('total');
-            $table->integer('potongan');
-            $table->integer('bayar');
-            $table->integer('kembalian');
+            $table->integer('totalBulan');
             $table->timestamps();
-            $table->primary('id');
             $table->foreign('kelas_id')->references('id')->on('kelas')->onDelete('cascade');
             $table->foreign('siswa_id')->references('id')->on('siswa')->onDelete('cascade');
             $table->foreign('nominalSpp_id')->references('id')->on('nominal_spp')->onDelete('cascade');

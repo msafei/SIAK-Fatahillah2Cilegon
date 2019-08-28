@@ -6,32 +6,13 @@
         <link href="{{ asset('plugins/datatables/responsive.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
 @endsection
 @section('content')
-<div class="page-inner">
-					<div class="page-header">
-                    
-						<h4 class="page-title">Data Nominal Pembayaran</h4>
-						<ul class="breadcrumbs">
-							<li class="nav-home">
-								<a href="/home">
-									<i class="flaticon-home"></i>
-								</a>
-							</li>
-							<li class="separator">
-								<i class="flaticon-right-arrow"></i>
-							</li>
-							<li class="nav-item">
-								<a href="/nominal-pembayaran">Data Nominal Pembayaran</a>
-							</li>
-							</ul>
-					</div>
+
 					<div class="row">
 						<div class="col-md-12">
 							<div class="card">
                             <div class="card-header">
                                 
-                            <a href="{{route('nominal-pembayaran.create')}}"><button class="btn btn-success btn-sm"><span  class="btn-label"><i class="fa fas fa-plus"> </i></span>  Tambah</button></a>
-              <button class="btn btn-primary btn-sm"><span class="btn-label"><i class="fa fas fa-file-export"> </i></span>  Export</button>
-              <button class="btn btn-secondary btn-sm"><span class="btn-label"><i class="fa fas fa-file-import"> </i></span>  Import</button>
+                            <a href="{{route('nominal-lain.create')}}"><button class="btn btn-success btn-sm"><span  class="btn-label"><i class="fa fas fa-plus"> </i></span>  Tambah</button></a>
             
               
             
@@ -51,17 +32,18 @@
 
 
                                         <tbody>
-                                            @foreach($nominalPembayaran as $nominalPembayaran)
+                                            @foreach($nominalLain as $nominalLain)
                                         <tr>
-                                            <td>{{$nominalPembayaran ->id}}</td>
-                                            <td>{{$nominalPembayaran ->jenis_pembayaran_id}}</td>
-                                            <td>{{$nominalPembayaran ->nominal}}</td>
+                                            <td>{{$nominalLain ->id}}</td>
+                                            <td>{{$nominalLain ->jenis_pembayaran}}</td>
+                                            <td>{{$nominalLain ->kelas_id}}</td>
+                                            <td>{{$nominalLain ->nominal}}</td>
                                             <td>
-                                                            <form action="{{route('nominal-pembayaran.destroy',$nominalPembayaran->id)}}" method="post">
+                                                            <form action="{{route('nominal-lain.destroy',$nominalLain->id)}}" method="post">
                                                             @csrf
                                                             @method('DELETE')
 															<button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary" data-original-title="Edit data">
-																<a href="{{route('nominal-pembayaran.edit',$nominalPembayaran->id)}}"><i class="fa fa-edit"></i></a>
+																<a href="{{route('nominal-lain.edit',$nominalLain->id)}}"><i class="fa fa-edit"></i></a>
                                                             </button>
 															<button type="submit" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Hapus data">
 																<i class="fa fa-times"></i>
@@ -75,8 +57,6 @@
 
                         </div> 
   </div>
-</div>
-</div>
 </div>
 </div>
 </div>

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 use App\JenisPembayaran;
+use App\TunggakanSpp;
 use App\PembayaranSpp;
+use App\Laporan;
 use App\NominalSpp;
 use App\Kelas;
 use App\Siswa;
@@ -17,12 +19,14 @@ class PembayaranSppController extends Controller
     
     public function index()
     {
+        $date = date('Y-m-d');
+        $tunggakanSpp = TunggakanSpp::all()->where('tanggal',$date);
         $jenisPembayaran = JenisPembayaran::all();
         $kelas = Kelas::all();
         $nominalSpp = NominalSpp::all();
         $siswa = Siswa::all();
         $pembayaranSpp = PembayaranSpp::all();
-        return view ('pembayaran-spp.index',compact('pembayaranSpp','siswa','kelas','nominalSpp','jenisPembayaran'));
+        return view ('pembayaran-spp.index',compact('pembayaranSpp','siswa','kelas','nominalSpp','jenisPembayaran','tunggakanSpp'));
     }
 
     /**
@@ -32,18 +36,39 @@ class PembayaranSppController extends Controller
      */
     public function create(Request $request)
     {
+        $noMax = TunggakanSpp::all('id')->max('id');
+        $date = date('dmy');
+        $idMax = substr($noMax,9,12);
+        $idlma = $idMax;
+        $idlma++;
+        $idbru = sprintf("%03s",$idlma);
+        $idoto = "SPP".$date.$idbru;
 
-        $spp = new PembayaranSpp;
-        $spp->id = $request->id;
-        $spp->siswa_id = $request->siswa_id;
-        $spp->kelas_id = $request->kelas_id;
-        $spp->bulan=implode(" ", $request->bulan);
-        $spp->nominalSpp_id = $request->nominalSpp_id;
-        $spp->nominal = $request->nominal;
-        $spp->totalBulan = $request->totalBulan;
-        $spp->potongan = $request->potongan;
-        $spp->total = $request->total;
-        $spp->save();
+        $a = new PembayaranSpp;
+        $a->id = $request->id;
+        $a->siswa_id = $request->siswa_id;
+        $a->kelas_id = $request->kelas_id;
+        $a->bulan=implode(", ", $request->bulan);
+        $a->nominalSpp_id = $request->nominalSpp_id;
+        $a->nominal = $request->nominal;
+        $a->total = $request->total;
+        $a->potongan = $request->potongan;
+        $a->totalBulan = $request->totalBulan;
+        $a->save();
+
+        $b = new TunggakanSpp;
+        $b->id = $idoto;
+        $b->tanggal = $request->tanggal;
+        $b->siswa_id = $request->siswa_id;
+        $b->kelas_id = $request->kelas_id;
+        $b->bulan=implode(", ", $request->bulan);
+        $b->nominalSpp_id = $request->nominalSpp_id;
+        $b->nominal = $request->nominal;
+        $b->total = $request->total;
+        $b->potongan = $request->potongan;
+        $b->totalBulan = $request->totalBulan;
+        $b->sisaBulan = $request->sisaBulan;
+        $b->save();
 
         return redirect('/pembayaran-spp')->with('success','Data telah dibuat');
     }
@@ -81,11 +106,23 @@ class PembayaranSppController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function bayar($id)
     {
+        
+        $findLama = PembayaranSpp::findOrFail($id,'totalBulan');
+
+        $finds = PembayaranSpp::findOrFail($id);
+        $find = $finds->bulan;
+        $bulan=[];
+        $bulan = explode(", ", $find);
+
         $pembayaranSpp = PembayaranSpp::findOrFail($id);
-        return view('pembayaran-spp.index',compact('pembayaranSpp'));
-    }
+        $jenisPembayaran = JenisPembayaran::all();
+        $kelas = Kelas::all();
+        $nominalSpp = NominalSpp::all();
+        $siswa = Siswa::all();
+        return view ('pembayaran-spp.bayar',compact('pembayaranSpp','siswa','kelas','nominalSpp','jenisPembayaran','bulan','findLama'));
+   }
 
     /**
      * Update the specified resource in storage.
@@ -95,9 +132,57 @@ class PembayaranSppController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        $pembayaranSpp = PembayaranSpp::find($id);
-        $pembayaranSpp->update($request->all());
+    {   
+        $dataPotong = PembayaranSpp::findOrFail($id);
+        $potonganLama = $dataPotong->potongan;
+
+        $dataTotal = PembayaranSpp::findOrFail($id);
+        $totalLama = $dataTotal->total;
+
+        $dataPotong = PembayaranSpp::findOrFail($id);
+        $potonganLama = $dataPotong->potongan;
+
+        $spp = PembayaranSpp::findOrFail($id);
+
+
+        $finds = PembayaranSpp::findOrFail($id);
+        $find = $finds->bulan;
+        $bulan=[];
+        $bulan = explode(", ", $find);
+
+        $bulanLama = implode(", ", $bulan);
+        $bulanBaru = implode(", ", $request->bulan);
+        $spp->bulan= $bulanLama.', '.$bulanBaru;
+        $spp->nominalSpp_id = $request->nominalSpp_id;
+        $spp->nominal = $request->nominal;
+        $spp->potongan = $request->potongan + $potonganLama;
+        $spp->total = $request->total + $totalLama;
+        $spp->totalBulan = $request->sudahBayar + $request->totalBulan;
+        $spp->save();
+
+        $noMax = TunggakanSpp::all('id')->max('id');
+        $date = date('dmy');
+        $idMax = substr($noMax,9,12);
+        $idlma = $idMax;
+        $idlma++;
+        $idbru = sprintf("%03s",$idlma);
+        $idoto = "SPP".$date.$idbru;
+        
+        $b = new TunggakanSpp;
+        $b->id = $idoto;
+        $b->tanggal = $request->tanggal;
+        $b->siswa_id = $request->siswa_id;
+        $b->kelas_id = $request->kelas_id;
+        $b->bulan=implode(", ", $request->bulan);
+        $b->nominalSpp_id = $request->nominalSpp_id;
+        $b->nominal = $request->nominal;
+        $b->total = $request->total;
+        $b->totalBulan = $request->totalBulan;
+        $b->sisaBulan = 12 - ($request->totalBulan + $request->sudahBayar);
+        $b->potongan = $request->potongan;
+        $b->save();
+        
+
         return redirect('/pembayaran-spp');
     }
 
@@ -113,6 +198,12 @@ class PembayaranSppController extends Controller
         $pembayaranSpp->delete();
         return redirect('/pembayaran-spp');
     }
+
+    public function print($id)
+    {
+        $tunggakanSpp = TunggakanSpp::findOrFail($id);
+        return view ('print.spp',compact('tunggakanSpp'));
+   }
 
     public function cariSiswaKelas($id)
     {
