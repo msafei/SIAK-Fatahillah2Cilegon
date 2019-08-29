@@ -9,26 +9,24 @@
 Pembayaran SPP
 @endsection
 @section('breadcrumb')
-<li class="breadcrumb-item active">Menambah Pembayaran SPP</li>
+<li class="breadcrumb-item active">Menambah Pembayaran Lain</li>
 @endsection
 @section('content')
 
 <div class="row">
                              <div class="col-md-12">
 							<div class="card">
-                            <div class="card-header">
-                                
-                            History Pembayaran SPP
-                             </div>
+                            
 								<div class="card-body">
 
-                                <form name="fform" method="post" action="/pembayaran-spp/{{$pembayaranSpp->id}}/update" ui-jp="parsley">
-                                        <div class="row">
-                                        <div class="col-md-3">
+                                <form name="fform" method="post" action="/pembayaran-lain/{{$tunggakanLain->id}}/update" ui-jp="parsley">
+                                <div class="row">
+                                        <div class="col-md-2">
                                         <div class="form-group">
                                                         <label><h6>Tanggal</h6></label>
                                                         <div>
                                                             <div class="input-group">
+                                                            @csrf  
                                                                 <input name="tanggal" type="text" class="form-control" id="datepicker-autoclose-edit">
                                                                 <div class="input-group-append">
                                                                     <span class="input-group-text"><i class="mdi mdi-calendar"></i></span>
@@ -37,182 +35,80 @@ Pembayaran SPP
                                                         </div>
                                                     </div>
                                                     </div>
-                                        <div class="col-md-9"></div>
+                                        <div class="col-md-2">
+                                        <div class="form-group">
+                                        <label><h6>ID</h6></label>
+                                        <input id="siswa_id" name="siswa_id" type="text" class="form-control" value="{{$tunggakanLain->siswa_id}}"  readonly>                        
+                                        </div>
+                                        </div>
+
                                         <div class="col-md-3">
                                         <div class="form-group">
-                                        @csrf                            
-                                        <label><h6>ID</h6></label>
-                                        <input id="siswa_id" name="siswa_id" type="text" class="form-control"  placeholder="Kelas_id" value="{{$pembayaranSpp->siswa->id}}" readonly>
-                                        </div>
-                                        </div>
-
-                                        <div class="col-md-3">
-                                        <div class="form-group">                       
                                         <label><h6>Siswa</h6></label>
-                                        <input id="siswa_id" name="siswa" type="text" class="form-control"  placeholder="Kelas_id" value="{{$pembayaranSpp->siswa->nama}}" readonly>
+                                        <input id="siswa" name="siswa" type="text" class="form-control" value="{{$tunggakanLain->siswa->nama}}"  readonly>                        
                                         </div>
                                         </div>
 
-                                        <div class="col-md-3">
+                            
+
+                                        <div class="col-md-2">
                                         <div class="form-group">
                                         <label><h6>ID Kelas</h6></label>
-                                        <input id="kelas_id" name="kelas_id" type="text" class="form-control"  placeholder="Kelas_id" value="{{$pembayaranSpp->siswa->kelas->id}}" readonly>                        
+                                        <input id="kelas_id" name="kelas_id" type="text" class="form-control" value="{{$tunggakanLain->kelas_id}}"  readonly>                        
                                         </div>
                                         </div>
 
                                         <div class="col-md-3">
                                         <div class="form-group">
                                         <label><h6>Kelas</h6></label>
-                                        <input id="kelas" name="kelas" type="text" class="form-control"  placeholder="Kelas_id" value="{{$pembayaranSpp->siswa->kelas->nama}}"  readonly>                        
+                                        <input id="kelas" name="kelas" type="text" class="form-control" value="{{$tunggakanLain->kelas->nama}}"  readonly>                        
                                         </div>
                                         </div>
 
-                                        <div class="col-md-3">
+                                        <div class="col-md-2">
                                         <div class="form-group">
-                                        <label><h6>Nominal ID</h6></label>
-                                        <input id="nominalSpp_id" name="nominalSpp_id" type="text" class="form-control" placeholder="Nominal" value="{{$pembayaranSpp->nominalSpp_id}}" readonly>                        
+                                        <label><h6>ID</h6></label>
+                                        <input id="jenis_pembayaran_id" name="jenis_pembayaran_id" type="text" class="form-control" value="{{$tunggakanLain->nominalLain->id}}" readonly>                        
                                         </div>
                                         </div>
+                                        
 
                                         <div class="col-md-4">
                                         <div class="form-group">
+                                        <label><h6>Pembayaran</h6></label>
+                                        <input id="pembayaran" name="pembayaran" type="text" class="form-control" value="{{$tunggakanLain->nominalLain->jenis_pembayaran_id}}" readonly>                        
+                                        </div>
+                                        </div>
+                                        
+
+                                        <div class="col-md-3">
+                                        <div class="form-group">
                                         <label><h6>Nominal</h6></label>
-                                        <input id="nominal" name="nominal" type="text" class="form-control" placeholder="Nominal" value="{{$pembayaranSpp->nominal}}" readonly>                        
+                                        <input id="nominal" name="nominal" type="text" class="form-control"  value="{{$tunggakanLain->nominal}}"  readonly>                        
                                         </div>
                                         </div>
 
-                                        <div class="col-md-5">
+                                        <div class="col-md-3">
                                         <div class="form-group">
                                         <label><h6>Potongan :</h6></label>
-                                        <input id="potongan" name="potongan" type="text" class="form-control" value="0" >                        
-                                        </div>
-                                        </div>
-                                        
-                                        </div>
-                                        <div id="bulan" class="row">
-                                        <div class="col-md-2">
-                                        <div class="form-group">
-                                        <input id="bulan" name="bulan[]" value="Januari" type="checkbox" data-exval='1' data-exval='1' 
-                                        {{in_array("Januari",$bulan)?" disabled ":""}}
-                                        ><label><h6>Januari</h6></label>                       
-                                        </div>
-                                        </div>
-                                        
-                                        <div class="col-md-2">
-                                        <div class="form-group">
-                                        <input id="bulan" name="bulan[]" value="Februari" type="checkbox" data-exval='1'
-                                        {{in_array("Februari",$bulan)?" disabled":""}}
-                                        ><label><h6>Februari</h6></label>                       
-                                        </div>
-                                        </div>
-
-                                        <div class="col-md-2">
-                                        <div class="form-group">
-                                        <input id="bulan" name="bulan[]" value="Maret" type="checkbox" data-exval='1'
-                                        {{in_array("Maret",$bulan)?" disabled":""}}
-                                        ><label><h6>Maret</h6></label>                       
-                                        </div>
-                                        </div>
-
-                                        <div class="col-md-2">
-                                        <div class="form-group">
-                                        <input id="bulan" name="bulan[]" value="April" type="checkbox" data-exval='1'
-                                        {{in_array("April",$bulan)?"disabled":""}}
-                                        ><label><h6>April</h6></label>                       
-                                        </div>
-                                        </div>
-                                        
-                                        <div class="col-md-2">
-                                        <div class="form-group">
-                                        <input id="bulan" name="bulan[]" value="Mei" type="checkbox" data-exval='1'
-                                        {{in_array("Mei",$bulan)?"disabled":""}}
-                                        ><label><h6>Mei</h6></label>                       
-                                        </div>
-                                        </div>
-                                                                                
-                                        <div class="col-md-2">
-                                        <div class="form-group">
-                                        <input id="bulan" name="bulan[]" value="Juni" type="checkbox" data-exval='1'
-                                        {{in_array("Juni",$bulan)?"disabled":""}}
-                                        ><label><h6>Juni</h6></label>                       
-                                        </div>
-                                        </div>
-                                                                                
-                                        <div class="col-md-2">
-                                        <div class="form-group">
-                                        <input id="bulan" name="bulan[]" value="Juli" type="checkbox" data-exval='1'
-                                        {{in_array("Juli",$bulan)?"disabled":""}}
-                                        ><label><h6>Juli</h6></label>                       
-                                        </div>
-                                        </div>
-
-                                                                                
-                                        <div class="col-md-2">
-                                        <div class="form-group">
-                                        <input id="bulan" name="bulan[]" value="Agustus" type="checkbox" data-exval='1'
-                                        {{in_array("Agustus",$bulan)?"disabled":""}}
-                                        ><label><h6>Agustus</h6></label>                       
-                                        </div>
-                                        </div>
-
-                                        <div class="col-md-2">
-                                        <div class="form-group">
-                                        <input id="bulan" name="bulan[]" value="September" type="checkbox" data-exval='1'
-                                        {{in_array("September",$bulan)?"disabled":""}}
-                                        ><label><h6>September</h6></label>                       
-                                        </div>
-                                        </div>
-
-                                        <div class="col-md-2">
-                                        <div class="form-group">
-                                        <input id="bulan" name="bulan[]" value="Oktober" type="checkbox" data-exval='1'
-                                        {{in_array("Oktober",$bulan)?"disabled":""}}
-                                        ><label><h6>Oktober</h6></label>                       
-                                        </div>
-                                        </div>
-
-                                        <div class="col-md-2">
-                                        <div class="form-group">
-                                        <input id="bulan" name="bulan[]" value="November" type="checkbox" data-exval='1'
-                                        {{in_array("November",$bulan)?"disabled":""}}
-                                        ><label><h6>November</h6></label>                       
-                                        </div>
-                                        </div>
-
-                                        <div class="col-md-2">
-                                        <div class="form-group">
-                                        <input id="bulan" name="bulan[]" value="Desember" type="checkbox" data-exval='1'
-                                        {{in_array("Desember",$bulan)?"disabled":""}}
-                                        ><label><h6>Desember</h6></label>                       
-                                        </div>
-                                        </div>
-
-
-
-                                        <div class="col-md-3">
-                                        <div class="form-group">
-                                        <label><h6>Total Bulan :</h6></label>
-                                        <input id="totalBulan" name="totalBulan" type="text" class="form-control" readonly>                        
+                                        <input id="potongan" name="potongan" type="text" class="form-control potongan" value="0">                        
                                         </div>
                                         </div>
 
                                         <div class="col-md-3">
-                                        <div class="form-group">
-                                        <label><h6>Sudah dibayar</h6></label>
-                                        <input id="sudahBayar" name="sudahBayar" type="text" class="form-control" placeholder="Total" value="{{$pembayaranSpp->totalBulan}}" readonly>                        
+                                        <div class="form-group mt-2">
+                                        <label><h6>Sudah Bayar :</h6></label>
+                                        <input id="sudahBayar" name="sudahBayar" type="text" class="form-control" value="{{$tunggakanLain->bayar}}" readonly>                        
                                         </div>
                                         </div>
-
-                                        <div class="col-md-6">
-                                        <div class="form-group">
-                                        <label><h6>Total :</h6></label>
-                                        <input id="total" name="total" type="text" class="form-control" placeholder="Total" readonly>                        
+                                        <div class="col-md-3">
+                                        <div class="form-group mt-2">
+                                        <label><h6>Bayar :</h6></label>
+                                        <input id="bayar" name="bayar" type="text" class="form-control" required>                        
                                         </div>
                                         </div>
-
-
-                                        <br>
-                                        <div class="modal-footer">
+                                        <div class="col-md-3">
+                                        <div class="form-group mt-5">
                                         <button type="submit" class="btn btn-success"><a>Simpan</a></button>
 					                    </form>
 

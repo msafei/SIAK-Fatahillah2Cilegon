@@ -13,9 +13,16 @@ class CreatePembayaranLainsTable extends Migration
      */
     public function up()
     {
-        Schema::create('pembayaran_lains', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        Schema::create('pembayaran_lain', function (Blueprint $table) {
+            $table->string('id');
+            $table->date('tanggal');
+            $table->string('siswa_id');
+            $table->string('kelas_id');
+            $table->string('nominalLain_id');
+            $table->integer('bayar');
+            $table->integer('potongan');
             $table->timestamps();
+            $table->primary('id');
         });
     }
 
@@ -26,6 +33,6 @@ class CreatePembayaranLainsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pembayaran_lains');
+        Schema::dropIfExists('pembayaran_lain');
     }
 }

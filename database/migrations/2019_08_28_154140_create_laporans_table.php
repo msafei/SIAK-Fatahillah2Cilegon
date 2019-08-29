@@ -16,10 +16,6 @@ class CreateLaporansTable extends Migration
         Schema::create('laporan', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->date('tanggal');
-            $table->string('spp_id')->default("-");
-            $table->string('nonSpp_id')->default("-");
-            $table->string('pemasukkan_id')->default("-");
-            $table->string('pengeluaran_id')->default("-");
             $table->string('sumber');
             $table->string('ket')->default("-");
             $table->string('akun');

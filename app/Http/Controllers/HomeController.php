@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Siswa;
 use App\Admin;
 use App\PembayaranSpp;
+use App\PembayaranLain;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -25,12 +26,19 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $siswa = Siswa::all();
         $pembayaranSpp = PembayaranSpp::all();
-        $tunggakanSpp = $pembayaranSpp->filter(function($pembayaranSpp){
+        $Spp = $pembayaranSpp->filter(function($pembayaranSpp){
             return $pembayaranSpp['totalBulan'] < 12;
         });
         $siswa = Siswa::all();
         $admin = Admin::all();
-        return view('home',compact('siswa','admin','tunggakanSpp'));
+        $a = $Spp->count();
+        $b = $siswa->count();
+        $tunggakanSpp = $b - $a;
+
+        $pembayaranLain = PembayaranLain::all()->groupBy('siswa_id');
+
+        return view('home',compact('siswa','admin','tunggakanSpp','pembayaranLain'));
     }
 }

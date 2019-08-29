@@ -17,10 +17,24 @@
               <input name="id" type="text" class="form-control" placeholder="ID Nominal Pembayaran" required>                        
             </div>
 
+      <div class="form-group">
+			<label >Nama Pembayaran</label>
+        		<select id="jenis_pembayaran_id" name="jenis_pembayaran_id" class="form-control js-example-basic-single" required>
+						<option value=""></option>
+						@foreach($jenisPembayaran as $jenisPembayaran)
+								<option value="{{$jenisPembayaran->nama}}">{{$jenisPembayaran->nama}}</option>
+						@endforeach
+				</select>
+			</div>
 			<div class="form-group">
-              <label>Nama Pembayaran</label>
-              <input name="nominal" type="text" class="form-control" placeholder="Nominal Pembayaran" required>                        
-            </div>			
+			<label >Kelas</label>
+        		<select id="kelas_id" name="kelas_id" class="form-control js-example-basic-single" required>
+						<option value=""></option>
+						@foreach($kelas as $kelas)
+								<option value="{{$kelas->id}}">{{$kelas->nama}}</option>
+						@endforeach
+				</select>
+			</div>
 
             <div class="form-group">
               <label>Nominal Pembayaran</label>

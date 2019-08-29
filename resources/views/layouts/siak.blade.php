@@ -64,17 +64,35 @@
                                     <i class="fi-air-play"></i><span> Dashboard </span>
                                 </a>
                             </li>
-                            <li class="menu-title">Pembayaran</li>
+                            <li class="menu-title">Keuangan</li>
                             <li>
-                                <a href="/pembayaran-spp">
-                                    <i class="fi-paper"></i><span> Pembayaran SPP </span>
+                                <a href="javascript: void(0);"><i class="fi-file"></i> <span> Pembayaran </span> <span class="menu-arrow"></span></a>
+                                <ul class="nav-second-level" aria-expanded="false">
+                                    <li><a href="/pembayaran-spp">Pembayaran SPP</a></li>
+                                    <li><a href="/pembayaran-lain">Pembayaran Lain</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="/pengeluaran">
+                                    <i class="fi-file"></i><span> Pengeluaran </span>
                                 </a>
                             </li>
                             <li>
-                                <a href="/pembayaran-lain">
-                                    <i class="fi-file"></i><span> Pembayaran Lain </span>
+                                <a href="/laporan">
+                                    <i class="fi-paper"></i><span> Laporan </span>
                                 </a>
                             </li>
+
+                            <li class="menu-title">History</li>
+                            <li>
+                                <a href="javascript: void(0);"><i class="fi-paper"></i> <span> History </span> <span class="menu-arrow"></span></a>
+                                <ul class="nav-second-level" aria-expanded="false">
+                                    <li><a href="/user">Pembayaran SPP</a></li>
+                                    <li><a href="/siswa">Pembayaran Lain</a></li>
+                                </ul>
+                            </li>
+                            
+
                             <li class="menu-title">Setting</li>
                             <li>
                                 <a href="javascript: void(0);"><i class="fi-server"></i> <span> Master </span> <span class="menu-arrow"></span></a>
@@ -138,25 +156,6 @@
                                         <h6 class="text-overflow m-0">Welcome !</h6>
                                     </div>
 
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                        <i class="fi-head"></i> <span>My Account</span>
-                                    </a>
-
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                        <i class="fi-cog"></i> <span>Settings</span>
-                                    </a>
-
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                        <i class="fi-help"></i> <span>Support</span>
-                                    </a>
-
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                        <i class="fi-lock"></i> <span>Lock Screen</span>
-                                    </a>
 
                                     <!-- item-->
                                     <a href="javascript:void(0);" class="dropdown-item notify-item" href="{{ route('logout') }}" onclick="event.preventDefault();

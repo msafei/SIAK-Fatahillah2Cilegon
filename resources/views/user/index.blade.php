@@ -5,39 +5,20 @@
         <!-- Responsive datatable examples -->
         <link href="{{ asset('plugins/datatables/responsive.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
 @endsection
+@section('judul')
+Data User
+@endsection
+@section('breadcrumb')
+<li class="breadcrumb-item"><a href="#">Master</a></li>
+<li class="breadcrumb-item active">Data User</li>
+@endsection
 @section('content')
-<div class="page-inner">
-					<div class="page-header">
-                    
-						<h4 class="page-title">Data User</h4>
-						<ul class="breadcrumbs">
-							<li class="nav-home">
-								<a href="/home">
-									<i class="flaticon-home"></i>
-								</a>
-							</li>
-							<li class="separator">
-								<i class="flaticon-right-arrow"></i>
-							</li>
-							<li class="nav-item">
-								<a href="/user">Data User</a>
-							</li>
-							</ul>
-					</div>
-					<div class="row">
-						<div class="col-md-12">
-							<div class="card">
-                            <div class="card-header">
-                                
-                            <a href="{{route('user.create')}}"><button class="btn btn-success btn-sm"><span  class="btn-label"><i class="fa fas fa-plus"> </i></span>  Tambah</button></a>
-              <button class="btn btn-primary btn-sm"><span class="btn-label"><i class="fa fas fa-file-export"> </i></span>  Export</button>
-              <button class="btn btn-secondary btn-sm"><span class="btn-label"><i class="fa fas fa-file-import"> </i></span>  Import</button>
-              
-            
-            </div>
-								<div class="card-body">
-									<div class="row">
-										<div class="col-md-12">
+ <div class="row">
+                            <div class="col-12">
+                                <div class="card-box table-responsive">
+                                    <div class="m-t-0 header-title">
+                                <a href="{{route('user.create')}}"><button class="btn btn-success btn-sm"><span  class="btn-label"><i class="fa fas fa-plus"> </i></span>  Tambah Data</button></a>
+                                    </div><br>    
                                     <table id="responsive-datatable" class="table dt-responsive nowrap display table table-striped table-hover" cellspacing="0" width="100%">
                                         <thead>
                                         <tr class="text-center">
@@ -72,15 +53,9 @@
                                         @endforeach
                                         </tbody>
                                     </table>
-
-                        </div> 
-  </div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+                                    </div>
+                            </div>
+                        </div> <!-- end row -->
 @endsection
 @section('js')
 <script src="{{ asset('plugins/datatables/jquery.dataTables.min.js') }}"></script>

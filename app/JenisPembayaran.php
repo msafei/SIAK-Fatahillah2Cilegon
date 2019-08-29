@@ -6,15 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class JenisPembayaran extends Model
 {
-    protected $table ='jenis-pembayaran';
+    protected $table ='jenis_pembayaran';
     protected $fillable = [
-        'id','nama','kode','status'
+        'id','nama',
     ];
   
     public $incrementing = false;
 
-    public function pembayaranSpp()
+    public function nominalLain()
     {
-        return $this->hasMany(PembayaranSpp::class);
+        return $this->hasMany(NominalLain::class);
     }
 }

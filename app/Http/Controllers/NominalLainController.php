@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\NominalLain;
+use App\Kelas;
 use App\JenisPembayaran;
 use Illuminate\Http\Request;
 
@@ -21,7 +22,9 @@ class NominalLainController extends Controller
     public function index()
     {
         $nominalLain = NominalLain::all();
-        return view ('nominal-lain.index',compact('nominalLain'));
+        $jenisPembayaran = JenisPembayaran::all();
+        $kelas = Kelas::all();
+        return view ('nominal-lain.index',compact('nominalLain','jenisPembayaran','kelas'));
     }
 
     /**
@@ -31,8 +34,10 @@ class NominalLainController extends Controller
      */
     public function create()
     {
+        $kelas = Kelas::all();
+        $jenisPembayaran = JenisPembayaran::all();
         $nominalLain = NominalLain::all();
-        return view ('nominal-lain.create',compact('nominalLain'));
+        return view ('nominal-lain.create',compact('nominalLain','jenisPembayaran','kelas'));
     }
 
     /**
@@ -47,7 +52,7 @@ class NominalLainController extends Controller
        
         ]);
   
-        $nominalLain = NominalPembayaran::create($request->all());
+        $nominalLain = NominalLain::create($request->all());
         return redirect()->route('nominal-lain.index')->with('success','Data telah dibuat');
     }
 
@@ -71,7 +76,9 @@ class NominalLainController extends Controller
     public function edit($id)
     {
         $nominalLain = NominalLain::findOrFail($id);
-        return view('nominal-lain.edit',compact('nominalLain'));
+        $kelas = Kelas::all();
+        $jenisPembayaran = JenisPembayaran::all();
+        return view('nominal-lain.edit',compact('nominalLain','jenisPembayaran','kelas'));
     }
 
     /**

@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Pengeluaran;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class PengeluaranController extends Controller
@@ -13,7 +14,8 @@ class PengeluaranController extends Controller
      */
     public function index()
     {
-        //
+        $pengeluaran = Pengeluaran::all();
+        return view ('pengeluaran.index',compact('pengeluaran'));
     }
 
     /**
@@ -21,9 +23,22 @@ class PengeluaranController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $request->validate([
+      
+            ]);
+
+        $a = new Pengeluaran;
+        $a->tanggal = $request->tanggal;
+        $a->admin_id = Auth::user()->id;
+        $a->nama = $request->nama;
+        $a->keterangan = $request->keterangan;
+        $a->nominalPengeluaran = $request->nominal;
+        $a->save();
+
+        return redirect('/pengeluaran')->with('success','Data telah dibuat');
+
     }
 
     /**

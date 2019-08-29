@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\JenisPembayaran;
 use App\TunggakanSpp;
 use App\PembayaranSpp;
 use App\Laporan;
@@ -21,7 +20,6 @@ class PembayaranSppController extends Controller
     {
         $date = date('Y-m-d');
         $tunggakanSpp = TunggakanSpp::all()->where('tanggal',$date);
-        $jenisPembayaran = JenisPembayaran::all();
         $kelas = Kelas::all();
         $nominalSpp = NominalSpp::all();
         $siswa = Siswa::all();
@@ -117,11 +115,10 @@ class PembayaranSppController extends Controller
         $bulan = explode(", ", $find);
 
         $pembayaranSpp = PembayaranSpp::findOrFail($id);
-        $jenisPembayaran = JenisPembayaran::all();
         $kelas = Kelas::all();
         $nominalSpp = NominalSpp::all();
         $siswa = Siswa::all();
-        return view ('pembayaran-spp.bayar',compact('pembayaranSpp','siswa','kelas','nominalSpp','jenisPembayaran','bulan','findLama'));
+        return view ('pembayaran-spp.bayar',compact('pembayaranSpp','siswa','kelas','nominalSpp','bulan','findLama'));
    }
 
     /**

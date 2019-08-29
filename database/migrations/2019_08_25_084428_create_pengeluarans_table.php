@@ -13,8 +13,15 @@ class CreatePengeluaransTable extends Migration
      */
     public function up()
     {
-        Schema::create('pengeluarans', function (Blueprint $table) {
+        Schema::create('pengeluaran', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->date('tanggal');
+            $table->string('admin_id')->nullable();
+            $table->string('kepsek_id')->nullable();
+            $table->string('nama');
+            $table->string('keterangan');
+            $table->string('nominalPengeluaran');
+            $table->string('status');
             $table->timestamps();
         });
     }
@@ -26,6 +33,6 @@ class CreatePengeluaransTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pengeluarans');
+        Schema::dropIfExists('pengeluaran');
     }
 }

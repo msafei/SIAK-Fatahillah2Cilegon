@@ -35,7 +35,7 @@ Dashboard
                                 <div class="card-box tilebox-one">
                                     <i class="icon-docs float-right text-muted"></i>
                                     <h6 class="text-muted text-uppercase mt-0">Tunggakan SPP</h6>
-                                    <h2 class="m-b-20"><span data-plugin="counterup">{{$tunggakanSpp->count()}}</span></h2>
+                                    <h2 class="m-b-20"><span data-plugin="counterup">{{$tunggakanSpp}}</span></h2>
                                     <span class="text-muted">Siswa masih menunggak</span>
                                 </div>
                             </div>
@@ -44,7 +44,7 @@ Dashboard
                                 <div class="card-box tilebox-one">
                                     <i class="icon-docs float-right text-muted"></i>
                                     <h6 class="text-muted text-uppercase mt-0">Tunggakan Lain</h6>
-                                    <h2 class="m-b-20" data-plugin="counterup">5</h2>
+                                    <h2 class="m-b-20" data-plugin="counterup">{{$pembayaranLain->count()}}</h2>
                                     <span class="text-muted">Siswa masih menunggak</span>
                                 </div>
                             </div>

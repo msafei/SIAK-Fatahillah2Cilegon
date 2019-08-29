@@ -13,9 +13,13 @@ class CreateTunggakanLainsTable extends Migration
      */
     public function up()
     {
-        Schema::create('tunggakan_lains', function (Blueprint $table) {
+        Schema::create('tunggakan_lain', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->timestamps();
+            $table->string('siswa_id');
+            $table->string('kelas_id');
+            $table->string('nominalLain_id');
+            $table->integer('bayar');
+            $table->integer('potongan');
         });
     }
 
@@ -26,6 +30,6 @@ class CreateTunggakanLainsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tunggakan_lains');
+        Schema::dropIfExists('tunggakan_lain');
     }
 }

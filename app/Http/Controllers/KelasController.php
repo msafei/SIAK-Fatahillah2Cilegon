@@ -28,7 +28,7 @@ class KelasController extends Controller
     * @return \Illuminate\Http\Response
     */
    public function create()
-   {
+   { 
     $jurusan = Jurusan::all();
        return view ('kelas.create',compact('jurusan'));
    }
