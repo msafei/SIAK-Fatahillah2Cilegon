@@ -8,6 +8,7 @@ use App\NominalLain;
 use App\Kelas;
 use App\Siswa;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class PembayaranLainController extends Controller
 {
@@ -35,7 +36,7 @@ class PembayaranLainController extends Controller
     public function create(Request $request)
     {
         $request->validate([
-       
+            'jenis_pembayaran_id' => 'unique:tunggakan_lain,nominal_lain_id,NULL,id,siswa_id,'.$request->siswa_id
             ]);
 
         $noMax = PembayaranLain::all('id')->max('id');
@@ -67,6 +68,16 @@ class PembayaranLainController extends Controller
         $b->potongan = $request->potongan;
         $b->total = $request->bayar;
         $b->save();
+
+        
+        $c = new Laporan;
+        $c->tanggal = date('Y-m-d');
+        $c->akun = "Kas Sekolah";
+        $c->ket = $request->siswa_id;
+        $c->sumber = $request->jenis_pembayaran_id."/".$request->kelas_id;
+        $c->debit = $request->bayar;
+        $c->save();
+        
 
         return redirect('/pembayaran-lain')->with('success','Data telah dibuat');
     }
@@ -152,6 +163,15 @@ class PembayaranLainController extends Controller
         $BayarLain->total = $d;
         $BayarLain->save();
 
+        
+        $c = new Laporan;
+        $c->tanggal = date('Y-m-d');
+        $c->akun = "Kas Sekolah";
+        $c->ket = $request->siswa_id;
+        $c->sumber = $request->jenis_pembayaran_id."/".$request->kelas_id;
+        $c->debit = $request->bayar;
+        $c->save();
+
         return redirect('/pembayaran-spp');
     }
 
@@ -163,7 +183,9 @@ class PembayaranLainController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $jurusan = Jurusan::findOrFail($id);
+        $jurusan->delete();
+        return redirect('/jurusan');
     }
 
     public function print($id)

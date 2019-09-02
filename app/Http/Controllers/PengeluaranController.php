@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Pengeluaran;
+use App\Laporan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -47,9 +48,22 @@ class PengeluaranController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function diterima(Request $request, $id)
     {
-        //
+        $a = Pengeluaran::findOrFail($id);
+        $a->kepsek_id = Auth::user()->id;
+        $a->status = "1";
+        $a->save();
+
+        $b = new Laporan;
+        $b->tanggal = date('Y-m-d');
+        $b->akun = "Kas Sekolah";
+        $b->sumber = $a->nama;
+        $b->ket = $a->keterangan;
+        $b->kredit = $a->nominalPengeluaran;
+        $b->save();
+
+        return redirect('/pengeluaran');
     }
 
     /**
@@ -58,9 +72,13 @@ class PengeluaranController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function ditolak($id)
     {
-        //
+        $a = Pengeluaran::findOrFail($id);
+        $a->kepsek_id = Auth::user()->id;
+        $a->status = "2";
+        $a->save();
+        return redirect('/pengeluaran');
     }
 
     /**

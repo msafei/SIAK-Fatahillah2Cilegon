@@ -49,12 +49,12 @@ Route::get('/pembayaran-lain/cariPembayaran/{id}','PembayaranLainController@cari
 Route::get('/pembayaran-lain/cariNominal/{id}','PembayaranLainController@cariNominal');
 Route::get('/pembayaran-lain/{id}/print', 'PembayaranLainController@print');
 
-Route::get('/laporan', 'LaporanController@index');
+Route::resource('/laporan', 'LaporanController');
 
 Route::get('/pengeluaran', 'PengeluaranController@index');
 Route::post('/pengeluaran/create', 'PengeluaranController@create');
-Route::post('/pengeluaran/{id}/diterima', 'PengeluaranController@diterima');
-Route::post('/pengeluaran/{id}/ditolak', 'PengeluaranController@ditolak');
+Route::patch('/pengeluaran/{id}/diterima', 'PengeluaranController@diterima');
+Route::patch('/pengeluaran/{id}/ditolak', 'PengeluaranController@ditolak');
 
 
 Auth::routes();

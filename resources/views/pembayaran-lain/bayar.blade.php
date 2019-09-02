@@ -68,7 +68,7 @@ Pembayaran SPP
                                         <div class="col-md-2">
                                         <div class="form-group">
                                         <label><h6>ID</h6></label>
-                                        <input id="jenis_pembayaran_id" name="jenis_pembayaran_id" type="text" class="form-control" value="{{$tunggakanLain->nominalLain->id}}" readonly>                        
+                                        <input id="nominal_lain_id" name="nominal_lain_id" type="text" class="form-control" value="{{$tunggakanLain->nominalLain->id}}" readonly>                        
                                         </div>
                                         </div>
                                         
@@ -76,7 +76,7 @@ Pembayaran SPP
                                         <div class="col-md-4">
                                         <div class="form-group">
                                         <label><h6>Pembayaran</h6></label>
-                                        <input id="pembayaran" name="pembayaran" type="text" class="form-control" value="{{$tunggakanLain->nominalLain->jenis_pembayaran_id}}" readonly>                        
+                                        <input id="pembayaran" name="pembayaran" type="text" class="form-control" value="{{$tunggakanLain->nominalLain->nominal_lain_id}}" readonly>                        
                                         </div>
                                         </div>
                                         

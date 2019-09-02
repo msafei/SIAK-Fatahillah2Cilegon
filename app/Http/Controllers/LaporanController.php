@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Laporan;
 use Illuminate\Http\Request;
 
-class Laporan extends Controller
+class LaporanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +13,9 @@ class Laporan extends Controller
      */
     public function index()
     {
-        //
+        
+        $laporan = Laporan::all();
+        return view ('laporan.index',compact('laporan'));
     }
 
     /**

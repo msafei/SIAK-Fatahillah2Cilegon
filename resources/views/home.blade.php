@@ -12,42 +12,117 @@ Dashboard
 <li class="breadcrumb-item active">Dark Menu</li> -->
 @endsection
 @section('content')
+
+<div class="row row-card-no-pd">
+						<div class="col-sm-6 col-md-3">
+							<div class="card card-stats card-round">
+								<div class="card-body ">
+									<div class="row">
+									<div class="col-icon">
+											<div class="icon-big text-center icon-primary bubble-shadow-small">
+												<i class="icon-people "></i>
+											</div>
+										</div>
+										<div class="col col-stats ml-3 ml-sm-0">
+											<div class="numbers">
+                                            <p class="card-category">Admin</p>
+												<h4 class="card-title"><b data-plugin="counterup">{{$admin->count()}}</b></h4>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6 col-md-3">
+							<div class="card card-stats card-round">
+								<div class="card-body ">
+									<div class="row">
+									<div class="col-icon">
+											<div class="icon-big text-center  icon-primary bubble-shadow-small">
+												<i class="icon-graduation"></i>
+											</div>
+										</div>
+										<div class="col col-stats ml-3 ml-sm-0">
+											<div class="numbers">
+                                            <p class="card-category">Siswa</p>
+												<h4 class="card-title" ><b data-plugin="counterup">{{$siswa->count()}}</b></h4>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6 col-md-3">
+							<div class="card card-stats card-round">
+								<div class="card-body">
+									<div class="row">
+									<div class="col-icon">
+											<div class="icon-big text-center icon-success bubble-shadow-small">
+												<i class="icon-docs"></i>
+											</div>
+										</div>
+										<div class="col col-stats ml-3 ml-sm-0">
+											<div class="numbers">
+                                            <p class="card-category">Tunggakan Spp</p>
+												<h4 class="card-title"><b  data-plugin="counterup">{{$tunggakanSpp}}</b> siswa</h4>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6 col-md-3">
+							<div class="card card-stats card-round">
+								<div class="card-body">
+									<div class="row">
+									<div class="col-icon">
+											<div class="icon-big text-center icon-secondary bubble-shadow-small">
+												<i class="icon-docs"></i>
+											</div>
+										</div>
+										<div class="col col-stats ml-3 ml-sm-0">
+											<div class="numbers">
+                                            <p class="card-category">Tunggakan Lain</p>
+												<h4 class="card-title"><b  data-plugin="counterup">{{$pembayaranLain}}</b> siswa</h4>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
 <div class="row">
-                            <div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
-                                <div class="card-box tilebox-one">
-                                    <i class="icon-people float-right text-muted"></i>
-                                    <h6 class="text-muted text-uppercase mt-0">Admin</h6>
-                                    <h2 class="m-b-20" data-plugin="counterup">{{$admin->count()}}</h2>
-                                    <span class="text-muted">Admin masih aktif</span>
-                                </div>
-                            </div>
 
-                            <div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
-                                <div class="card-box tilebox-one">
-                                    <i class=" icon-graduation float-right text-muted"></i>
-                                    <h6 class="text-muted text-uppercase mt-0">Siswa</h6>
-                                    <h2 class="m-b-20"><span data-plugin="counterup">{{$siswa->count()}}</span></h2>
-                                    <span class="text-muted">Siswa masih aktif</span>
-                                </div>
-                            </div>
+					<div class="col-lg-6">
+                                <div class="card-box">
+                                    <h4 class="header-title mb-4">Transaksi Hari ini</h4>
 
-                            <div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
-                                <div class="card-box tilebox-one">
-                                    <i class="icon-docs float-right text-muted"></i>
-                                    <h6 class="text-muted text-uppercase mt-0">Tunggakan SPP</h6>
-                                    <h2 class="m-b-20"><span data-plugin="counterup">{{$tunggakanSpp}}</span></h2>
-                                    <span class="text-muted">Siswa masih menunggak</span>
-                                </div>
-                            </div>
+                                    <ul class="list-unstyled transaction-list slimscroll" style="max-height: 600px;">
+									@foreach($laporan as $laporan)
+									<li>
+									@if(($laporan->kredit)>0)
+                                            <i class="dripicons-arrow-up text-danger"></i>
+									@else
+											<i class="dripicons-arrow-down text-success"></i>
+									@endif
+                                            <span class="tran-text">{{$laporan->sumber}}</span>
+									@if(($laporan->kredit)>0)
+                                            <span class="pull-right text-danger tran-price">-{{"Rp.".number_format($laporan->kredit,0,",",",")}}</span>
+									@else
+											<span class="pull-right text-success tran-price">+{{"Rp.".number_format($laporan->debit,0,",",",")}}</span>
+									@endif
+                                            <span class="clearfix"></span>
+                                        </li>
+									@endforeach
 
-                            <div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
-                                <div class="card-box tilebox-one">
-                                    <i class="icon-docs float-right text-muted"></i>
-                                    <h6 class="text-muted text-uppercase mt-0">Tunggakan Lain</h6>
-                                    <h2 class="m-b-20" data-plugin="counterup">{{$pembayaranLain->count()}}</h2>
-                                    <span class="text-muted">Siswa masih menunggak</span>
+                                    </ul>
+
                                 </div>
-                            </div>
-                        </div>
+							</div>
+						
+
+
+                    </div>
                         <!-- end row -->
 @endsection

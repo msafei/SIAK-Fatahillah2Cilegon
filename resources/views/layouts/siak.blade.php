@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <title>SIAK</title>
+        <title>@yield('title')</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
         <meta content="Coderthemes" name="author" />
@@ -13,13 +13,14 @@
 
         <!-- App css -->
         @yield('css')
+
+        <script src="{{ asset('assets/js/jquery.min.js')}}"></script>
         <link href="{{ asset('assets/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('assets/css/icons.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('assets/css/metismenu.min.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('assets/css/atlantis.css')}}" rel="stylesheet"  type="text/css">
         <link href="{{ asset('assets/css/style_dark.css')}}" rel="stylesheet" type="text/css" />
-
         <script src="{{ asset('assets/js/modernizr.min.js')}}"></script>
-
     </head>
 
 
@@ -33,11 +34,10 @@
 
                 <div class="slimscroll-menu" id="remove-scroll">
 
-                    <!-- LOGO -->
                     <div class="topbar-left">
                         <a href="/home" class="logo">
                             <span>
-                                <img src="{{ asset('assets/images/logo_light.png')}}" alt="" height="35">
+                                <img src="{{ asset('assets/images/logo_light.png')}}" alt="" height="25">
                             </span>
                             <i>
                                 <img src="{{ asset('assets/images/logo_sm.png')}}" alt="" height="28">
@@ -47,7 +47,7 @@
 
                     <!-- User box -->
                     
-                    <div class="user-box text-center">
+                    <div class="user-box">
                         <h5><a href="#">{{ Auth::user()->name }}</a> </h5>
                         <p class="text-muted">{{ Auth::user()->role }}</p>
                     </div>
@@ -145,6 +145,37 @@
                         <ul class="list-unstyled topbar-right-menu float-right mb-0">
 
 
+                        
+                        <li class="dropdown notification-list">
+                                <a class="nav-link dropdown-toggle arrow-none" data-toggle="dropdown" href="#" role="button"
+                                   aria-haspopup="false" aria-expanded="false">
+                                    <i class="fi-bell noti-icon"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right dropdown-lg">
+
+                                    <!-- item-->
+                                    <div class="dropdown-item noti-title">
+                                        <h5 class="m-0"><span class="float-right"><a href="" class="text-dark"><small>Clear All</small></a> </span>Notification</h5>
+                                    </div>
+
+                                    <div class="slimscroll" style="max-height: 230px;">
+                                        <!-- item-->
+                                        <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                            <div class="notify-icon bg-success"><i class="mdi mdi-comment-account-outline"></i></div>
+                                            <p class="notify-details">Caleb Flakelar commented on Admin<small class="text-muted">1 min ago</small></p>
+                                        </a>
+
+                                        <!-- item-->
+                                        <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                            <div class="notify-icon bg-info"><i class="mdi mdi-account-plus"></i></div>
+                                            <p class="notify-details">New user registered.<small class="text-muted">5 hours ago</small></p>
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </li>
+
+
                             <li class="dropdown notification-list">
                                 <a class="nav-link dropdown-toggle nav-user" data-toggle="dropdown" href="#" role="button"
                                    aria-haspopup="false" aria-expanded="false">
@@ -168,9 +199,8 @@
 
                                 </div>
                             </li>
-
-                        </ul>
-
+                        
+                            </ul>
                         <ul class="list-inline menu-left mb-0">
                             <li class="float-left">
                                 <button class="button-menu-mobile open-left disable-btn">
@@ -225,7 +255,6 @@
 
 
         <!-- jQuery  -->
-        <script src="{{ asset('assets/js/jquery.min.js')}}"></script>
         <script src="{{ asset('assets/js/popper.min.js')}}"></script>
         <script src="{{ asset('assets/js/bootstrap.min.js')}}"></script>
         <script src="{{ asset('assets/js/metisMenu.min.js')}}"></script>
@@ -235,13 +264,10 @@
         <!-- Flot chart -->
 
         <!-- KNOB JS -->
-        [if IE]>
-        <script type="text/javascript" src="{{ asset('plugins/jquery-knob/excanvas.js')}}"></script>
-        <![endif]
-        <script src="{{ asset('plugins/jquery-knob/jquery.knob.js')}}"></script>
         @yield('js')
         <!-- Dashboard Init -->
-        <script src="{{ asset('assets/pages/jquery.dashboard.init.js')}}"></script>
+        <script src="{{ asset('plugins/waypoints/lib/jquery.waypoints.min.js')}}"></script>
+        <script src="{{ asset('plugins/counterup/jquery.counterup.min.js')}}"></script>
 
         <!-- App js -->
         <script src="{{ asset('assets/js/jquery.core.js')}}"></script>

@@ -193,6 +193,11 @@ Pembayaran Lain
                                                         <option value="{{$key}}">{{$value}}</option>
                                                 @endforeach
                                         </select>
+                                                    @error('jenis_pembayaran_id')
+                                                <span class="jenis_pembayaran_id" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                                    @enderror
                                         </div>
                                         </div>
 

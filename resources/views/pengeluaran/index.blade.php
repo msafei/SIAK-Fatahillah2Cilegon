@@ -15,26 +15,33 @@ Pengeluaran
                             <div class="col-12">
                                 <div class="card-box table-responsive">
                                     <div class="m-t-0 header-title">
+                                    @if(auth()->user()->role == 'kepsek')
+                                    @else
                                 <button class="btn btn-success btn-sm"  data-toggle="modal" data-target="#myModal"><span  class="btn-label"><i class="fa fas fa-plus"> </i></span>  Tambah Pengeluaran</button>
+                                    @endif
                                     </div><br>    
-                                    <table id="responsive-datatable" class="table dt-responsive nowrap display table table-striped table-hover" cellspacing="0" width="100%">
+                                    <table style="width:100%;" id="responsive-datatable" class="table dt-responsive nowrap display table table-striped table-hover" cellspacing="0" width="100%">
                                         <thead>
                                         <tr>
                                             <th>ID</th>
                                             <th>Nama</th>
-                                            <th>keterangan</th>
                                             <th>Nominal</th>
                                             <th>Status</th>
+                                            @if(auth()->user()->role == 'kepsek')
+                                            <th>Aksi</th>
+                                            @else
+                                            <td></td>
+                                            @endif
+                                            <th>keterangan :</th>
                                         </tr>
                                         </thead>
 
 
                                         <tbody>
                                             @foreach($pengeluaran as $pengeluaran)
-                                        <tr>
-                                            <td>{{$pengeluaran->id}}</td>
-                                            <td>{{$pengeluaran->nama}}</td>
-                                            <td>{{$pengeluaran->keterangan}}</td>
+                                        <tr >
+                                            <td style="width:7%;">{{$pengeluaran->id}}</td>
+                                            <td style="width:30%;">{{$pengeluaran->nama}}</td>
                                             <td>{{"Rp.".number_format($pengeluaran->nominalPengeluaran,0,",",",")}}</td>
                                             <td>
                                             @if(($pengeluaran->status)==0)
@@ -45,6 +52,25 @@ Pengeluaran
                                             <span class="badge  badge-danger" style="padding-top:5px; padding-bottom:5px; padding-right:13px; padding-left:13px;">Ditolak</span>
                                             @endif
                                             </td>
+                                            
+                                            @if(auth()->user()->role == 'kepsek' and ($pengeluaran->status==0))
+                                            <td><center>
+                                            <form method="post" action="/pengeluaran/{{$pengeluaran->id}}/diterima" >
+                                                @csrf
+                                                @method('PATCH')
+                                            <button class="btn btn-success btn-md" style="width:50px; margin-top:10px"><span><i class="fa fa-check"> </i></span></button>
+                                            </form>
+                                            <form method="post" action="/pengeluaran/{{$pengeluaran->id}}/ditolak" >
+                                                  @csrf
+                                                @method('PATCH')
+                                            <button class="btn btn-danger btn-md" style="width:50px; margin-top:10px; margin-bottom:10px"><span><i class="fa fa-times"> </i></span></button>
+                                            </form>
+                                            </center>
+                                            </td>
+                                            @else
+                                            <td></td>
+                                            @endif
+                                            <td style="width:30%;">{{$pengeluaran->keterangan}}</td>
                                         </tr>
                                         @endforeach
                                         </tbody>
@@ -138,12 +164,8 @@ $(document).ready(function() {
     }).datepicker("setDate","0");
 
 
-                // Default Datatable
-                $('#datatable').DataTable();
-        
                 // Responsive Datatable
                 $('#responsive-datatable').DataTable({
-                    
                 });
                 
             });

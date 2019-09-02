@@ -68,6 +68,14 @@ class PembayaranSppController extends Controller
         $b->sisaBulan = $request->sisaBulan;
         $b->save();
 
+        $c = new Laporan;
+        $c->tanggal = $request->tanggal;
+        $c->akun = "Kas Sekolah";
+        $c->sumber = "SPP".$request->kelas_id;
+        $c->ket = $request->siswa_id;
+        $c->debit = $request->nominal;
+        $c->save();
+
         return redirect('/pembayaran-spp')->with('success','Data telah dibuat');
     }
 
@@ -178,6 +186,14 @@ class PembayaranSppController extends Controller
         $b->sisaBulan = 12 - ($request->totalBulan + $request->sudahBayar);
         $b->potongan = $request->potongan;
         $b->save();
+
+        $c = new Laporan;
+        $c->tanggal = $request->tanggal;
+        $c->akun = "Kas Sekolah";
+        $c->sumber = "SPP".$request->kelas_id;
+        $c->ket = $request->siswa_id;
+        $c->debit = $request->nominal;
+        $c->save();
         
 
         return redirect('/pembayaran-spp');
