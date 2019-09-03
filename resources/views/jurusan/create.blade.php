@@ -1,35 +1,17 @@
 @extends('layouts.siak')
+@section('judul')
+Data Jenis Pembayaran
+@endsection
+@section('breadcrumb')
+<li class="breadcrumb-item"><a href="#">Master</a></li>
+<li class="breadcrumb-item active">Data Jenis Pembayaran</li>
+@endsection
 @section('content')
-<div class="page-inner">
-					<div class="page-header">
-          <a href="/jurusan"><button type="button" class="btn btn-icon btn-link">
-						<i class="fas fa-arrow-left"></i></button></a>       
-						<h4 class="page-title">Tambah Jurusan</h4>
-						<ul class="breadcrumbs">
-							<li class="nav-home">
-								<a href="/home">
-									<i class="flaticon-home"></i>
-								</a>
-							</li>
-							<li class="separator">
-								<i class="flaticon-right-arrow"></i>
-							</li>
-							<li class="nav-item">
-								<a href="/jurusan">Data Jurusan</a>
-              </li>
-              <li class="separator">
-								<i class="flaticon-right-arrow"></i>
-							</li>
-              <li class="nav-item">
-								<a >Tambah Jurusan</a>
-							</li>
-							</ul>
-					</div>
 					<div class="row">
 						<div class="col-md-6">
 							<div class="card">
 								<div class="card-body">
-									<div class="row">
+									<div class="row"> 
 										<div class="col-md-12">
                                     
                     <form method="post" action="{{route('jurusan.store')}}" ui-jp="parsley">
@@ -55,7 +37,7 @@
           </div>
           <div class="card-action">
           <button type="submit" class="btn btn-success"><a>Simpan</a></button>
-                  <a href="/jurusan"><button class="btn btn-danger"><a>Batal</a></button></a>
+                  <a href="/jurusan" class="btn btn-danger">Batal</a>
 								</div>
           
         </div>

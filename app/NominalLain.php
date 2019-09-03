@@ -15,6 +15,12 @@ class NominalLain extends Model
   
     public $incrementing = false;
 
+    
+    public function kelas()
+    {
+        return $this->belongsTo(Kelas::class);
+    }
+
     public function jenisPembayaran()
     {
         return $this->belongsTo(JenisPembayaran::class);

@@ -27,6 +27,9 @@ Route::resource('/jenis-pembayaran', 'JenisPembayaranController');
 Route::resource('/nominal-lain', 'NominalLainController');
 Route::resource('/nominal-spp', 'NominalSppController');
 
+Route::get('/history-spp', 'HistoryController@spp');
+Route::get('/history-lain', 'HistoryController@lain');
+
 Route::get('/pembayaran-spp', 'PembayaranSppController@index');
 Route::post('/pembayaran-spp/{id}/update', 'PembayaranSppController@update');
 Route::post('/pembayaran-spp/create', 'PembayaranSppController@create');

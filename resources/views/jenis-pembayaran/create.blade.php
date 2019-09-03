@@ -1,6 +1,13 @@
 @extends('layouts.siak')
+@section('judul')
+Data Jenis Pembayaran
+@endsection
+@section('breadcrumb')
+<li class="breadcrumb-item"><a href="#">Master</a></li>
+<li class="breadcrumb-item active">Data Jenis Pembayaran</li>
+@endsection
 @section('content')
-				<div class="row">
+					<div class="row">
 						<div class="col-md-6">
 							<div class="card">
 								<div class="card-body">

@@ -15,6 +15,8 @@
         @yield('css')
 
         <script src="{{ asset('assets/js/jquery.min.js')}}"></script>
+         <!-- Toastr css -->
+         <link href="{{ asset('plugins/jquery-toastr/jquery.toast.min.css')}}" rel="stylesheet" />
         <link href="{{ asset('assets/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('assets/css/icons.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('assets/css/metismenu.min.css')}}" rel="stylesheet" type="text/css" />
@@ -87,8 +89,8 @@
                             <li>
                                 <a href="javascript: void(0);"><i class="fi-paper"></i> <span> History </span> <span class="menu-arrow"></span></a>
                                 <ul class="nav-second-level" aria-expanded="false">
-                                    <li><a href="/user">Pembayaran SPP</a></li>
-                                    <li><a href="/siswa">Pembayaran Lain</a></li>
+                                    <li><a href="/history-spp">Pembayaran SPP</a></li>
+                                    <li><a href="/history-lain">Pembayaran Lain</a></li>
                                 </ul>
                             </li>
                             
@@ -265,6 +267,9 @@
 
         <!-- KNOB JS -->
         @yield('js')
+        <!-- Toastr js -->
+        <script src="{{ asset('plugins/jquery-toastr/jquery.toast.min.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/pages/jquery.toastr.js')}}" type="text/javascript"></script>
         <!-- Dashboard Init -->
         <script src="{{ asset('plugins/waypoints/lib/jquery.waypoints.min.js')}}"></script>
         <script src="{{ asset('plugins/counterup/jquery.counterup.min.js')}}"></script>
@@ -272,6 +277,19 @@
         <!-- App js -->
         <script src="{{ asset('assets/js/jquery.core.js')}}"></script>
         <script src="{{ asset('assets/js/jquery.app.js')}}"></script>
+        <script>
+        @if(Session::has('info'))
+            $.toast({
+                heading: '',
+                text: "{{Session::get('info')}}",
+                position: 'top-right',
+                loaderBg: '#3b98b5',
+                icon: 'info',
+                hideAfter: 3000,
+                stack: 1
+            });
+        @endif
+        </script>
 
         
 

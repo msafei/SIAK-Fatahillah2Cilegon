@@ -1,27 +1,31 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\TunggakanSpp;
+use App\PembayaranSpp;
+use App\TunggakanLain;
+use App\PembayaranLain;
+use App\NominalLain;
 use App\NominalSpp;
-use App\JenisPembayaran;
 use App\Kelas;
+use App\Siswa;
 use Illuminate\Http\Request;
 
-class NominalSppController extends Controller
+class HistoryController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function __construct()
+    public function spp()
     {
-        $this->middleware('auth');
-    }
-    
-    public function index()
-    {
+        $tunggakanSpp = TunggakanSpp::all();
+        $kelas = Kelas::all();
         $nominalSpp = NominalSpp::all();
-        return view ('nominal-spp.index',compact('nominalSpp'));
+        $siswa = Siswa::all();
+        $pembayaranSpp = PembayaranSpp::all();
+        return view ('history.spp',compact('pembayaranSpp','siswa','kelas','nominalSpp','jenisPembayaran','tunggakanSpp'));
     }
 
     /**
@@ -29,10 +33,14 @@ class NominalSppController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function lain()
     {
-        $kelas = kelas::all();
-        return view ('nominal-spp.create',compact('kelas'));
+        $pembayaranLain = PembayaranLain::all();
+        $kelas = Kelas::all();
+        $nominalLain = NominalLain::all();
+        $siswa = Siswa::all();
+        $tunggakanLain = TunggakanLain::all();
+        return view ('history.lain',compact('pembayaranLain','siswa','kelas','nominalLain','tunggakanLain'));
     }
 
     /**
@@ -43,25 +51,7 @@ class NominalSppController extends Controller
      */
     public function store(Request $request)
     {
-        
-        $request->validate([
-            'kelas'=> 'required|unique:nominal_spp,kelas_id'
-        ]);
-
-        $kode = new NominalSpp;
-        $a ='SPP';
-        $b =$request->kelas;
-        $b++;
-        $kode->id =$a.$b;
-
-
-        $tnominal=(($request->nominal)*12);
-        $kode->kelas_id = $request->kelas;
-        $kode->nominal = $request->nominal;
-        $kode->t_nominal = $tnominal;
-        $kode->save();
-
-        return redirect()->route('nominal-spp.index')->with('success','Data telah dibuat');
+        //
     }
 
     /**
@@ -72,7 +62,7 @@ class NominalSppController extends Controller
      */
     public function show($id)
     {
-
+        //
     }
 
     /**
@@ -83,10 +73,7 @@ class NominalSppController extends Controller
      */
     public function edit($id)
     {
-        $jenisPembayaran = JenisPembayaran::all();
-        $kelas = kelas::all();
-        $nominalSpp = NominalSpp::findOrFail($id);
-        return view('nominal-spp.edit',compact('nominalSpp','jenisPembayaran','kelas'));
+        //
     }
 
     /**
@@ -98,9 +85,7 @@ class NominalSppController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $nominalSpp = NominalSpp::find($id);
-        $nominalSpp->update($request->all());
-        return redirect('/nominal-spp');
+        //
     }
 
     /**
@@ -111,8 +96,6 @@ class NominalSppController extends Controller
      */
     public function destroy($id)
     {
-        $nominalSpp = NominalSpp::findOrFail($id);
-        $nominalSpp->delete();
-        return redirect('/nominal-spp');
+        //
     }
 }

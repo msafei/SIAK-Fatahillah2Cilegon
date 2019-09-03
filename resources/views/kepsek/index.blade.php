@@ -5,33 +5,21 @@
         <!-- Responsive datatable examples -->
         <link href="{{ asset('plugins/datatables/responsive.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
 @endsection
+@section('judul')
+Data Kepala Sekolah
+@endsection
+@section('breadcrumb')
+<li class="breadcrumb-item"><a href="#">Master</a></li>
+<li class="breadcrumb-item active">Data Kepala Sekolah</li>
+@endsection
 @section('content')
-<div class="page-inner">
-					<div class="page-header">
-                    
-						<h4 class="page-title">Data Kepsek</h4>
-						<ul class="breadcrumbs">
-							<li class="nav-home">
-								<a href="/home">
-									<i class="flaticon-home"></i>
-								</a>
-							</li>
-							<li class="separator">
-								<i class="flaticon-right-arrow"></i>
-							</li>
-							<li class="nav-item">
-								<a href="/kepsek">Data Kepsek</a>
-							</li>
-							</ul>
-					</div>
-					<div class="row">
-						<div class="col-md-12">
-							<div class="card">
-                            <div class="card-header">
+<div class="row">
+                            <div class="col-12">
+                                <div class="card-box table-responsive">
+                                    <div class="m-t-0 header-title">
                                 
                             <a href="{{route('kepsek.create')}}"><button class="btn btn-success btn-sm"><span  class="btn-label"><i class="fa fas fa-plus"> </i></span>  Tambah</button></a>
-              <button class="btn btn-primary btn-sm"><span class="btn-label"><i class="fa fas fa-file-export"> </i></span>  Export</button>
-              <button class="btn btn-secondary btn-sm"><span class="btn-label"><i class="fa fas fa-file-import"> </i></span>  Import</button>
+              
             
               
             
@@ -66,9 +54,10 @@
                                                             <form action="{{route('kepsek.destroy',$kepsek->id)}}" method="post">
                                                             @csrf
                                                             @method('DELETE')
+                                                            <a href="{{route('kepsek.edit',$kepsek->id)}}">
 															<button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary" data-original-title="Edit data">
-																<a href="{{route('kepsek.edit',$kepsek->id)}}"><i class="fa fa-edit"></i></a>
-                                                            </button>
+																<i class="fa fa-edit"></i>
+                                                            </button></a>
 															<button type="submit" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Hapus data">
 																<i class="fa fa-times"></i>
                                                             </button>
@@ -79,8 +68,7 @@
                                         </tbody>
                                     </table>
 
-                        </div> 
-  </div>
+                
 </div>
 </div>
 </div>

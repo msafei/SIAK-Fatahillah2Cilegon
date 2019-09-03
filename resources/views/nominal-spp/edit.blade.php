@@ -1,30 +1,12 @@
 @extends('layouts.siak')
+@section('judul')
+Nominal SPP
+@endsection
+@section('breadcrumb')
+<li class="breadcrumb-item"><a href="#">Master</a></li>
+<li class="breadcrumb-item active">Nominal SPP</li>
+@endsection
 @section('content')
-<div class="page-inner">
-					<div class="page-header">
-          <a href="/nominal-pembayaran"><button type="button" class="btn btn-icon btn-link">
-						<i class="fas fa-arrow-left"></i></button></a>       
-						<h4 class="page-title">Edit Nominal Pembayaran</h4>
-						<ul class="breadcrumbs">
-							<li class="nav-home">
-								<a href="/home">
-									<i class="flaticon-home"></i>
-								</a>
-							</li>
-							<li class="separator">
-								<i class="flaticon-right-arrow"></i>
-							</li>
-							<li class="nav-item">
-								<a href="/nominal-pembayaran">Data Nominal Pembayaran</a>
-              </li>
-              <li class="separator">
-								<i class="flaticon-right-arrow"></i>
-							</li>
-              <li class="nav-item">
-								<a >Edit Nominal Pembayaran</a>
-							</li>
-							</ul>
-					</div>
 					<div class="row">
 						<div class="col-md-6">
 							<div class="card">
@@ -43,15 +25,16 @@
               <input name="id" type="text" class="form-control" placeholder="ID Nominal Pembayaran" value="{{$nominalSpp->id}}" disabled>                        
             </div>
 
-						<div class="form-group">
-        		<label for="single">Jenis Pembayaran</label>
-        		<select id="single" name="jenis_pembayaran_id" class="form-control select2" ui-jp="select2"  ui-options="{theme: 'bootstrap'}">
-						@foreach($jenisPembayaran as $key => $jenisPembayaran)
-								<option value="{{$jenisPembayaran->id}}"
-								@if ($jenisPembayaran->id == $nominalSpp->jenis_pembayaran_id)
+			<div class="form-group">
+        		<label for="single">Kelas</label>
+        		<select id="single" name="kelas_id" class="form-control select2" ui-jp="select2" ui-options="{theme: 'bootstrap'}" required>
+						<option value="">Pilih Kelas</option>
+						@foreach($kelas as $kelas)
+								<option value="{{$kelas->id}}" 
+                @if ($kelas->id == $nominalSpp->kelas_id)
 								selected
 								@endif
-								>{{$jenisPembayaran->nama}}</option>
+                >{{$kelas->nama}}</option>
 						@endforeach
         		</select>
       			</div>
@@ -65,7 +48,7 @@
           <div class="card-action text-right">
 					<button type="submit" class="btn btn-success"><a>Ubah</a></button>
 					</form>
-            <a href="/nominal-pembayaran"><button class="btn btn-danger"><a>Batal</a></button></a>
+            <a href="/nominal-spp"  class="btn btn-danger"> Batal </a>
                   
                   
 								</div>

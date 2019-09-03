@@ -1,30 +1,12 @@
 @extends('layouts.siak')
+@section('judul')
+Nominal SPP
+@endsection
+@section('breadcrumb')
+<li class="breadcrumb-item"><a href="#">Master</a></li>
+<li class="breadcrumb-item active">Nominal SPP</li>
+@endsection
 @section('content')
-<div class="page-inner">
-					<div class="page-header">
-          <a href="/nominal-spp"><button type="button" class="btn btn-icon btn-link">
-						<i class="fas fa-arrow-left"></i></button></a>       
-						<h4 class="page-title">Tambah Nominal SPP</h4>
-						<ul class="breadcrumbs">
-							<li class="nav-home">
-								<a href="/home">
-									<i class="flaticon-home"></i>
-								</a>
-							</li>
-							<li class="separator">
-								<i class="flaticon-right-arrow"></i>
-							</li>
-							<li class="nav-item">
-								<a href="/nominal-spp">Data Nominal SPP</a>
-              </li>
-              <li class="separator">
-								<i class="flaticon-right-arrow"></i>
-							</li>
-              <li class="nav-item">
-								<a >Tambah Nominal SPP</a>
-							</li>
-							</ul>
-					</div>
 					<div class="row">
 						<div class="col-md-6">
 							<div class="card">
@@ -43,8 +25,14 @@
 						@foreach($kelas as $kelas)
 								<option value="{{$kelas->id}}">{{$kelas->nama}}</option>
 						@endforeach
-        		</select>
-      			</div>
+				</select>
+				@error('kelas')
+                                                <span class="kelas" style="color:red" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                                    @enderror
+				  </div>
+			
 
             <div class="form-group">
               <label>Nominal Pembayaran</label>

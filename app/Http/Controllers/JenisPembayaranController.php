@@ -40,11 +40,23 @@ class JenisPembayaranController extends Controller
      */
     public function store(Request $request)
     {
+        
         $request->validate([
        
         ]);
+
+        $noMax = JenisPembayaran::all('id')->max('id');
+        $idMax = substr($noMax,1,6);
+        $idlma = $idMax;
+        $idlma++;
+        $idbru = sprintf("%05s",$idlma);
+        $idoto = "P".$idbru;
+
+        $b = new JenisPembayaran;
+        $b->id = $idoto;
+        $b->nama = $request->nama;
+        $b->save();
   
-        $jenisPembayaran = JenisPembayaran::create($request->all());
         return redirect()->route('jenis-pembayaran.index')->with('success','Data telah dibuat');
     }
 

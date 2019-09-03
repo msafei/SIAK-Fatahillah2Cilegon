@@ -1,30 +1,12 @@
 @extends('layouts.siak')
+@section('judul')
+Data Siswa
+@endsection
+@section('breadcrumb')
+<li class="breadcrumb-item"><a href="#">Master</a></li>
+<li class="breadcrumb-item active">Data Siswa</li>
+@endsection
 @section('content')
-<div class="page-inner">
-					<div class="page-header">
-          <a href="/siswa"><button type="button" class="btn btn-icon btn-link">
-						<i class="fas fa-arrow-left"></i></button></a>       
-						<h4 class="page-title">Tambah Siswa</h4>
-						<ul class="breadcrumbs">
-							<li class="nav-home">
-								<a href="/home">
-									<i class="flaticon-home"></i>
-								</a>
-							</li>
-							<li class="separator">
-								<i class="flaticon-right-arrow"></i>
-							</li>
-							<li class="nav-item">
-								<a href="/siswa">Data Siswa</a>
-              </li>
-              <li class="separator">
-								<i class="flaticon-right-arrow"></i>
-							</li>
-              <li class="nav-item">
-								<a >Tambah Siswa</a>
-							</li>
-							</ul>
-					</div>
 					<div class="row">
 						<div class="col-md-6">
 							<div class="card">
@@ -103,7 +85,7 @@
           </div>
           <div class="card-action">
           <button type="submit" class="btn btn-success"><a>Simpan</a></button>
-                  <a href="/admin"><button class="btn btn-danger"><a>Batal</a></button></a>
+                  <a href="/siswa"><button class="btn btn-danger"><a>Batal</a></button></a>
 								</div>
           
         </div>

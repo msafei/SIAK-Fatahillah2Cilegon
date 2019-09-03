@@ -1,4 +1,11 @@
 @extends('layouts.siak')
+@section('judul')
+Nominal Pembayaran Lain
+@endsection
+@section('breadcrumb')
+<li class="breadcrumb-item"><a href="#">Setting Keuangan</a></li>
+<li class="breadcrumb-item active">Nominal Pembayaran Lain</li>
+@endsection
 @section('content')
 					<div class="row">
 						<div class="col-md-6">
@@ -11,18 +18,13 @@
         <div class="box">
           <div class="box-body">
 
-            <div class="form-group">
-              @csrf
-              <label>ID</label>
-              <input name="id" type="text" class="form-control" placeholder="ID Nominal Pembayaran" required>                        
-            </div>
-
       <div class="form-group">
+	  @csrf
 			<label >Nama Pembayaran</label>
         		<select id="jenis_pembayaran_id" name="jenis_pembayaran_id" class="form-control js-example-basic-single" required>
 						<option value=""></option>
 						@foreach($jenisPembayaran as $jenisPembayaran)
-								<option value="{{$jenisPembayaran->nama}}">{{$jenisPembayaran->nama}}</option>
+								<option value="{{$jenisPembayaran->id}}">{{$jenisPembayaran->nama}}</option>
 						@endforeach
 				</select>
 			</div>

@@ -51,8 +51,19 @@ class NominalLainController extends Controller
         $request->validate([
        
         ]);
-  
-        $nominalLain = NominalLain::create($request->all());
+        $noMax = NominalLain::all('id')->max('id');
+        $idMax = substr($noMax,1,4);
+        $idlma = $idMax;
+        $idlma++;
+        $idbru = sprintf("%03s",$idlma);
+        $idoto = "P".$idbru;
+
+        $b = new NominalLain;
+        $b->id = $idoto;
+        $b->jenis_pembayaran_id = $request->jenis_pembayaran_id;
+        $b->kelas_id = $request->kelas_id;
+        $b->nominal = $request->nominal;
+        $b->save();
         return redirect()->route('nominal-lain.index')->with('success','Data telah dibuat');
     }
 

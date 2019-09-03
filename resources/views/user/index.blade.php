@@ -17,7 +17,7 @@ Data User
                             <div class="col-12">
                                 <div class="card-box table-responsive">
                                     <div class="m-t-0 header-title">
-                                <a href="{{route('user.create')}}"><button class="btn btn-success btn-sm"><span  class="btn-label"><i class="fa fas fa-plus"> </i></span>  Tambah Data</button></a>
+                        
                                     </div><br>    
                                     <table id="responsive-datatable" class="table dt-responsive nowrap display table table-striped table-hover" cellspacing="0" width="100%">
                                         <thead>
@@ -41,9 +41,7 @@ Data User
                                             <form action="{{route('user.destroy',$user->id)}}" method="post">
                                                             @csrf
                                                             @method('DELETE')
-															<button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary" data-original-title="Edit data">
-																<a href="{{route('user.edit',$user->id)}}"><i class="fa fa-edit"></i></a>
-                                                            </button>
+															
 															<button type="submit" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Hapus data">
 																<i class="fa fa-times"></i>
                                                             </button>

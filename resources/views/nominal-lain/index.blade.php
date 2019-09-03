@@ -25,6 +25,7 @@
                                         <tr>
                                             <th>ID</th>
                                             <th>Jenis Pembayaran</th>
+                                            <th>Kelas</th>
                                             <th>Nominal Pembayaran</th>
                                             <th style="width: 10%">Aksi</th>
                                         </tr>
@@ -35,16 +36,17 @@
                                             @foreach($nominalLain as $nominalLain)
                                         <tr>
                                             <td>{{$nominalLain ->id}}</td>
-                                            <td>{{$nominalLain ->jenis_pembayaran}}</td>
-                                            <td>{{$nominalLain ->kelas_id}}</td>
+                                            <td>{{$nominalLain ->jenis_pembayaran_id}}</td> 
+                                            <td>{{$nominalLain ->kelas->nama}}</td>
                                             <td>{{$nominalLain ->nominal}}</td>
                                             <td>
                                                             <form action="{{route('nominal-lain.destroy',$nominalLain->id)}}" method="post">
                                                             @csrf
                                                             @method('DELETE')
+                                                            <a href="{{route('nominal-lain.edit',$nominalLain->id)}}">
 															<button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary" data-original-title="Edit data">
-																<a href="{{route('nominal-lain.edit',$nominalLain->id)}}"><i class="fa fa-edit"></i></a>
-                                                            </button>
+																<i class="fa fa-edit"></i>
+                                                            </button></a>
 															<button type="submit" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Hapus data">
 																<i class="fa fa-times"></i>
                                                             </button>

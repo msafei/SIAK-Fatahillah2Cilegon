@@ -1,30 +1,12 @@
 @extends('layouts.siak')
+@section('judul')
+Data Kelas
+@endsection
+@section('breadcrumb')
+<li class="breadcrumb-item"><a href="#">Master</a></li>
+<li class="breadcrumb-item active">Data Kelas</li>
+@endsection
 @section('content')
-<div class="page-inner">
-					<div class="page-header">
-          <a href="/kelas"><button type="button" class="btn btn-icon btn-link">
-						<i class="fas fa-arrow-left"></i></button></a>       
-						<h4 class="page-title">Edit Kelas</h4>
-						<ul class="breadcrumbs">
-							<li class="nav-home">
-								<a href="/home">
-									<i class="flaticon-home"></i>
-								</a>
-							</li>
-							<li class="separator">
-								<i class="flaticon-right-arrow"></i>
-							</li>
-							<li class="nav-item">
-								<a href="/kelas">Data Kelas</a>
-              </li>
-              <li class="separator">
-								<i class="flaticon-right-arrow"></i>
-							</li>
-              <li class="nav-item">
-								<a >Edit Kelas</a>
-							</li>
-							</ul>
-					</div>
 					<div class="row">
 						<div class="col-md-6">
 							<div class="card">
@@ -55,7 +37,7 @@
            
           </div>
           <div class="card-action text-right">
-            <a href="/kelas"><button class="btn btn-danger"><a>Batal</a></button></a>
+            <a href="/kelas" class="btn btn-danger">Batal</a>
                   <button type="submit" class="btn btn-success"><a>Ubah</a></button>
                   
 								</div>

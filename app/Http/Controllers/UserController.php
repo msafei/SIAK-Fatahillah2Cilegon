@@ -25,7 +25,15 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        $user = new User;
+        $user->role = $request->role;
+        $user->name = $request->nama;
+        $user->username = $request->id;
+        $user->password = bcrypt($request->id);
+        $user->remember_token = str_random(60);
+        $user->save();
+
+        return redirect('/user')->with('success','Data telah dibuat');
     }
 
     /**

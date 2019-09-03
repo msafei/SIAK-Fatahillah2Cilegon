@@ -1,36 +1,12 @@
-@extends('layouts.dashboard')
-@section('show-master')
-show
+@extends('layouts.siak')
+@section('judul')
+Data Admin
 @endsection
-@section('active-admin')
-active
+@section('breadcrumb')
+<li class="breadcrumb-item"><a href="#">Master</a></li>
+<li class="breadcrumb-item active">Data Admin</li>
 @endsection
 @section('content')
-<div class="page-inner">
-					<div class="page-header">
-          <a href="/admin"><button type="button" class="btn btn-icon btn-link">
-						<i class="fas fa-arrow-left"></i></button></a>       
-						<h4 class="page-title">Edit Admin</h4>
-						<ul class="breadcrumbs">
-							<li class="nav-home">
-								<a href="/home">
-									<i class="flaticon-home"></i>
-								</a>
-							</li>
-							<li class="separator">
-								<i class="flaticon-right-arrow"></i>
-							</li>
-							<li class="nav-item">
-								<a href="/admin">Data Admin</a>
-              </li>
-              <li class="separator">
-								<i class="flaticon-right-arrow"></i>
-							</li>
-              <li class="nav-item">
-								<a >Edit Admin</a>
-							</li>
-							</ul>
-					</div>
 					<div class="row">
 						<div class="col-md-6">
 							<div class="card">

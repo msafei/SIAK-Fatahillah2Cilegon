@@ -29,4 +29,8 @@ class Kelas extends Model
     {
         return $this->hasMany(NominalSpp::class);
     }
+    public function nominalLain()
+    {
+        return $this->hasMany(NominalSpp::class);
+    }
 }

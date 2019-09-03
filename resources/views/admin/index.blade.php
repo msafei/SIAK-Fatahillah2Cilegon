@@ -9,7 +9,7 @@
 Data Admin
 @endsection
 @section('breadcrumb')
-<li class="breadcrumb-item"><a href="#">Master</a></li>
+<li class="breadcrumb-item"><a href="#">Master</a></li> 
 <li class="breadcrumb-item active">Data Admin</li>
 @endsection
 @section('content')
@@ -46,9 +46,10 @@ Data Admin
                                                             <form action="{{route('admin.destroy',$admin->id)}}" method="post">
                                                             @csrf
                                                             @method('DELETE')
+                                                            <a href="{{route('admin.edit',$admin->id)}}">
 															<button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary" data-original-title="Edit data">
-																<a href="{{route('admin.edit',$admin->id)}}"><i class="fa fa-edit"></i></a>
-                                                            </button>
+																<i class="fa fa-edit"></i>
+                                                            </button></a>
 															<button type="submit" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Hapus data">
 																<i class="fa fa-times"></i>
                                                             </button>
